@@ -29,7 +29,7 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
             ),
             SizedBox(height: 20),
             Image.asset(
-              'assets/images/Frame 3.png', // Replace with your image asset
+              'assets/images/Frame 3.png',
               height: 258,
               width: 256,
             ),
