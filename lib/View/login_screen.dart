@@ -74,10 +74,9 @@ class LoginScreen extends StatelessWidget {
                   maxHeight: double.infinity,
                 ),
                 child: TextFormField(
-                  textAlign: TextAlign.center,
                   cursorColor: AppColors.textColor1,
                   decoration: InputDecoration(
-                    hintText: 'Password',
+                    hintText: '               Password',
                     hintStyle: const TextStyle(
                       fontSize: 14,
                       fontFamily: 'text',
