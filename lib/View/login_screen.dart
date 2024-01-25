@@ -8,6 +8,7 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -64,8 +65,6 @@ class LoginScreen extends StatelessWidget {
                   isCollapsed: true,
                 ),
               ),
-
-
 
               const SizedBox(height: 16),
               Container(
@@ -219,20 +218,20 @@ class LoginScreen extends StatelessWidget {
                 height: 60,
                 width: double.infinity,
                 child: TextButton(
+                  onPressed: () {},
+                  style: TextButton.styleFrom(
+                    backgroundColor: AppColors.textColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
                   child: const Text(
                     "Log in",
                     style: TextStyle(
                         fontFamily: "text",
                         fontSize: 14,
+                        color: Colors.white,
                         fontWeight: FontWeight.w600),
-                  ),
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    backgroundColor: AppColors.textColor,
-                    primary: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
                   ),
                 ),
               ),

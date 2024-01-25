@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
+import 'package:food_on_railway/View/otp_verify_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
@@ -129,19 +131,26 @@ class SignUpScreen extends StatelessWidget {
                 height: 60,
                 width: double.infinity,
                 child: TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => OTPVerificationPage(phoneNumber: "")),
+                    );
+                  },
+
+                  style: TextButton.styleFrom(
+                    backgroundColor: AppColors.textColor,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                  ),
                   child: const Text(
                     "Get OTP",
                     style: TextStyle(
                         fontFamily: "text",
                         fontSize: 14,
-                        fontWeight: FontWeight.w600),
-                  ),
-                  onPressed: () {},
-                  style: TextButton.styleFrom(
-                    backgroundColor: AppColors.textColor,
-                    primary: Colors.white,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
+                        fontWeight: FontWeight.w600,
+                        color: Colors.white
                     ),
                   ),
                 ),

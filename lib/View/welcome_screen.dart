@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
-import 'package:food_on_railway/Model/unboarding_model.dart';
+import 'package:food_on_railway/Model/onboarding_model.dart';
 import 'package:food_on_railway/View/login_screen.dart';
 
 
@@ -96,7 +96,12 @@ class _OnbordingState extends State<Onbording> {
                 width: double.infinity,
                 child: TextButton(
                   child: const Text(
-                     "Next",
+                     "Next",style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontFamily: "text",
+                    color: Colors.white,
+                    fontSize: 14
+                  ),
                   ),
                   onPressed: () {
                     if (currentIndex == contents.length - 1) {
@@ -114,7 +119,6 @@ class _OnbordingState extends State<Onbording> {
                   },
                   style: TextButton.styleFrom(
                     backgroundColor: AppColors.textColor,
-                    primary: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(20),
                     ),

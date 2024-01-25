@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:food_on_railway/Model/Utils/app_colors.dart';
 
 class OTPVerificationPage extends StatefulWidget {
   final String phoneNumber;
+  List<TextEditingController> _otpControllers =
+  List.generate(4, (index) => TextEditingController());
 
   OTPVerificationPage({required this.phoneNumber});
 
@@ -10,51 +13,70 @@ class OTPVerificationPage extends StatefulWidget {
 }
 
 class _OTPVerificationPageState extends State<OTPVerificationPage> {
-  TextEditingController _otpController = TextEditingController();
+  List<FocusNode> _focusNodes = List.generate(4, (index) => FocusNode());
+
+  @override
+  void dispose() {
+    for (var focusNode in _focusNodes) {
+      focusNode.dispose();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.all(20.0),
+        padding: const EdgeInsets.all(40.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            SizedBox(height: 80),
+            const Text(
               "OTP Verification",
               style: TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
+                  fontSize: 24,
+                  fontWeight: FontWeight.w600,
+                  fontFamily: "text",
+                  color: Colors.black),
+            ),
+            const SizedBox(height: 80),
+            Align(
+              alignment: Alignment.center,
+              child: Image.asset(
+                'assets/images/Frame 3.png',
+                height: 258,
+                width: 256,
               ),
             ),
-            SizedBox(height: 20),
-            Image.asset(
-              'assets/images/Frame 3.png',
-              height: 258,
-              width: 256,
-            ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 40),
+            const Text(
               "Enter OTP",
               style: TextStyle(
-                fontSize: 18,
-              ),
+                  fontSize: 25,
+                  fontFamily: "text",
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               "A 4-digit code has been sent to",
               style: TextStyle(
-                fontSize: 16,
-              ),
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "text",
+                  color: AppColors.textColor1),
             ),
             Text(
               "${widget.phoneNumber}",
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+              style: const TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500,
+                  fontFamily: "text",
+                  color: AppColors.textColor1),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -64,15 +86,24 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                     height: 50,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      border: Border.all(width: 1),
+                      color: AppColors.boxColor,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextField(
-                      controller: _otpController,
+                      controller: widget._otpControllers[i],
                       keyboardType: TextInputType.number,
                       maxLength: 1,
                       textAlign: TextAlign.center,
-                      decoration: InputDecoration(
+                      style: TextStyle(color: Colors.black),
+                      focusNode: _focusNodes[i],
+                      onChanged: (value) {
+                        if (value.length == 1 && i < 3) {
+                          FocusScope.of(context).requestFocus(_focusNodes[i + 1]);
+                        } else if (value.isEmpty && i > 0) {
+                          FocusScope.of(context).requestFocus(_focusNodes[i - 1]);
+                        }
+                      },
+                      decoration: const InputDecoration(
                         counterText: "",
                         border: InputBorder.none,
                       ),
@@ -80,21 +111,42 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
                   ),
               ],
             ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-              },
-              child: Text("Verify"),
+            const SizedBox(height: 60),
+            Container(
+              height: 60,
+              width: double.infinity,
+              child: TextButton(
+                onPressed: () {
+
+                },
+                style: TextButton.styleFrom(
+                  backgroundColor: AppColors.textColor,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                ),
+                child: const Text(
+                  "Verify",
+                  style: TextStyle(
+                      fontFamily: "text",
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white),
+                ),
+              ),
             ),
           ],
         ),
       ),
     );
   }
-}
 
-void main() {
-  runApp(MaterialApp(
-    home: OTPVerificationPage(phoneNumber: "+1 123-456-7890"), // Replace with your phone number
-  ));
+  void _verifyOTP() {
+    String enteredOTP = "";
+    for (int i = 0; i < 4; i++) {
+      enteredOTP += widget._otpControllers[i].text;
+    }
+    print("Entered OTP: $enteredOTP");
+
+  }
 }
