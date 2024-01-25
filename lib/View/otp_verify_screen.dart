@@ -83,7 +83,6 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
             SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
-                // Implement OTP verification logic here
               },
               child: Text("Verify"),
             ),
