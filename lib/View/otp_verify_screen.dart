@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
+import 'package:food_on_railway/View/create_account_screen.dart';
 
 class OTPVerificationPage extends StatefulWidget {
   final String phoneNumber;
@@ -117,7 +118,8 @@ class _OTPVerificationPageState extends State<OTPVerificationPage> {
               width: double.infinity,
               child: TextButton(
                 onPressed: () {
-
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>Create_Acc_Screen()
+                  ));
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: AppColors.textColor,
