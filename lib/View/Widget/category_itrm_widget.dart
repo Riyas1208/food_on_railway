@@ -23,7 +23,7 @@ class CategoryItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 130,
+        width: 150,
         margin: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: boxColor,
@@ -41,7 +41,7 @@ class CategoryItem extends StatelessWidget {
           ],
         ),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Image.asset(
               imagePath,

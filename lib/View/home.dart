@@ -50,7 +50,7 @@ class _HomeState extends State<Home> {
                     ],
                   ),
                 ),
-                const SizedBox(width: 124,),
+                const SizedBox(width: 120,),
 
                 Row(
                   children: [
@@ -430,69 +430,66 @@ class _HomeState extends State<Home> {
             ),
           ),
           Container(
-            height: 300.0,
-            child: ListView(
-              children: [
-                Container(
-                  height: 70,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: [
-                      CategoryItem(
-                        imagePath: "assets/images/b.png",
-                        title: 'Burger',
-                        key: UniqueKey(),
-                        isSelected: selectedCategory == 'Burger',
-                        onTap: () {
-                          setState(() {
-                            selectedCategory = 'Burger';
-                          });
-                        },
-                      ),
-                      CategoryItem(
-                        imagePath: "assets/images/p.png",
-                        title: 'Pizza',
-                        key: UniqueKey(),
-                        isSelected: selectedCategory == 'Pizza',
-                        onTap: () {
-                          setState(() {
-                            selectedCategory = 'Pizza';
-                          });
-                        },
-                      ),
-                      CategoryItem(
-                        imagePath: "assets/images/s.png",
-                        title: 'Sandwich',
-                        key: UniqueKey(),
-                        isSelected: selectedCategory == 'Sandwich',
-                        onTap: () {
-                          setState(() {
-                            selectedCategory = 'Sandwich';
-                          });
-                        },
-                      ),
-                    ],
+            height: 70.0,
+            child: Container(
+
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  CategoryItem(
+                    imagePath: "assets/images/b.png",
+                    title: 'Burger',
+                    key: UniqueKey(),
+                    isSelected: selectedCategory == 'Burger',
+                    onTap: () {
+                      setState(() {
+                        selectedCategory = 'Burger';
+                      });
+                    },
                   ),
-                ),
-                FoodItem(
-                  image: 'assets/images/pizza.png',
-                  name: 'Pepper Pizza',
-                  description: '5kg box of Pizza',
-                  key: UniqueKey(),
-                  price: 15,
-                  rating: 3.8,
-                ),
-                FoodItem(
-                  image: 'assets/images/pizza.png',
-                  name: 'Pepper Pizza',
-                  description: '5kg box of Pizza',
-                  key: UniqueKey(),
-                  price: 15,
-                  rating: 3.8,
-                ),
-              ],
+                  CategoryItem(
+                    imagePath: "assets/images/p.png",
+                    title: 'Pizza',
+                    key: UniqueKey(),
+                    isSelected: selectedCategory == 'Pizza',
+                    onTap: () {
+                      setState(() {
+                        selectedCategory = 'Pizza';
+                      });
+                    },
+                  ),
+                  CategoryItem(
+                    imagePath: "assets/images/s.png",
+                    title: 'Sandwich',
+                    key: UniqueKey(),
+                    isSelected: selectedCategory == 'Sandwich',
+                    onTap: () {
+                      setState(() {
+                        selectedCategory = 'Sandwich';
+                      });
+                    },
+                  ),
+                ],
+              ),
             ),
           ),
+          FoodItem(
+            image: 'assets/images/pizza.png',
+            name: 'Pepper Pizza',
+            description: '5kg box of Pizza',
+            key: UniqueKey(),
+            price: 15,
+            rating: 3.8,
+          ),
+          FoodItem(
+            image: 'assets/images/pizza.png',
+            name: 'Pepper Pizza',
+            description: '5kg box of Pizza',
+            key: UniqueKey(),
+            price: 15,
+            rating: 3.8,
+          ),
+
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Row(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
+import 'package:food_on_railway/View/login_screen.dart';
 
 class Create_Acc_Screen extends StatelessWidget {
   @override
@@ -165,6 +166,7 @@ class Create_Acc_Screen extends StatelessWidget {
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginScreen()));
                   },
 
                   style: TextButton.styleFrom(
