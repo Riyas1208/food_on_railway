@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import 'package:food_on_railway/View/login_screen.dart';
+import 'package:food_on_railway/View/order_history.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -166,7 +167,9 @@ class Profile extends StatelessWidget {
                       height: 24,
                       color: Colors.black,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>OrderHistoryScreen()));
+                    },
                   ),
                 ),
                 Card(

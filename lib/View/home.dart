@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
-import 'Widget/category_itrm_widget.dart';
+import 'package:food_on_railway/View/PNR_check_screen.dart';
+import 'package:food_on_railway/View/check_platform_screen.dart';
+import 'package:food_on_railway/View/group_order_screen.dart';
+import 'package:food_on_railway/View/restuarent_search.dart';
+import '../Model/category_itrm_model.dart';
 import 'Widget/food_item_widget.dart';
-import 'Widget/image_with_text_widget.dart';
+import '../Model/image_with_text_model.dart';
+import 'favourite-screen.dart';
+import 'notification.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -34,9 +40,9 @@ class _HomeState extends State<Home> {
                       Text(
                         'Hello,',
                         style: TextStyle(
-                          fontSize: 14.0,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: "text1"
+                            fontSize: 14.0,
+                            fontWeight: FontWeight.w400,
+                            fontFamily: "text1"
                         ),
                       ),
                       Text(
@@ -54,55 +60,57 @@ class _HomeState extends State<Home> {
 
                 Row(
                   children: [
-
-                    Container(
-                      height: 31,
-                      width: 31,
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: AppColors.secondaryColor,
-                                width: 2.0,
-                              ),
-                            ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => FavoriteScreen()),
+                        );
+                      },
+                      child: Container(
+                        height: 31,
+                        width: 31,
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(
+                            color: AppColors.secondaryColor,
+                            width: 2.0,
                           ),
-                          Center(
-                            child: Align(
-                              alignment: Alignment.center,
-                              child: IconButton(
-                                icon: const Icon(
-                                  Icons.favorite,
-                                  color: AppColors.secondaryColor,
-                                  size: 16,
-                                ),
-                                onPressed: () {},
-                              ),
-                            ),
+                        ),
+                        child: Center(
+                          child: Icon(
+                            Icons.favorite,
+                            color: AppColors.secondaryColor,
+                            size: 16,
                           ),
-                        ],
+                        ),
                       ),
                     ),
-                    const SizedBox(width: 8,),
-                    Container(
-                      height: 31,
-                      width: 31,
-                      child: Stack(
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              border: Border.all(
-                                color: AppColors.secondaryColor,
-                                width: 2.0,
+                    SizedBox(width: 8),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NotificationScreen()),
+                        );
+                      },
+                      child: Container(
+                        height: 31,
+                        width: 31,
+                        child: Stack(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                border: Border.all(
+                                  color: AppColors.secondaryColor,
+                                  width: 2.0,
+                                ),
                               ),
                             ),
-                          ),
-                          Center(
-                            child: Align(
-                              alignment: Alignment.center,
+                            Center(
+                              child: Align(
+                                alignment: Alignment.center,
                                 child: Image.asset(
                                   'assets/images/notification.png',
                                   width: 14,
@@ -111,12 +119,13 @@ class _HomeState extends State<Home> {
                                 ),
                               ),
                             ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
-
                   ],
                 ),
+
               ],
             ),
           ),
@@ -148,7 +157,6 @@ class _HomeState extends State<Home> {
               ),
             ),
           ),
-
 
           Padding(
             padding: const EdgeInsets.all(16.0),
@@ -225,11 +233,11 @@ class _HomeState extends State<Home> {
                           ),
                           child: const Text('Buy Now',
                             style: TextStyle(
-                            color: AppColors.textColor,
-                            fontSize: 8.0,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: "text",
-                          ),),
+                              color: AppColors.textColor,
+                              fontSize: 8.0,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "text",
+                            ),),
                         ),
                       )
                       ,
@@ -271,11 +279,13 @@ class _HomeState extends State<Home> {
                               height: 41,
                               width: 51,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>PNRStatus()));
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    side: const BorderSide(color: AppColors.textColor), // Border color for unselected container
+                                    side: const BorderSide(color: AppColors.textColor),
                                   ),
                                   backgroundColor: AppColors.boxColor1,
                                 ),
@@ -297,11 +307,13 @@ class _HomeState extends State<Home> {
                               height: 41,
                               width: 51,
                               child: ElevatedButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context)=>RestuarentSearch()));
+                                },
                                 style: ElevatedButton.styleFrom(
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(8.0),
-                                    side: const BorderSide(color: AppColors.textColor), // Border color for unselected container
+                                    side: const BorderSide(color: AppColors.textColor),
                                   ),
                                   backgroundColor: AppColors.boxColor1,
                                 ),
@@ -317,21 +329,21 @@ class _HomeState extends State<Home> {
                         ),
                       ],
                     ),
-              
+
                     Padding(
                       padding: const EdgeInsets.all(10.0),
                       child: Container(
                         color: Colors.white,
                         height: 43,
                         child: TextField(
-                          cursorColor: Colors.black, // Change cursor color here
+                          cursorColor: Colors.black,
                           decoration: InputDecoration(
                             hintText: 'Enter PNR Number To Order',
                             hintStyle: const TextStyle(
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400,
-                              fontFamily: "text1",
-                              color: Colors.black
+                                fontSize: 13,
+                                fontWeight: FontWeight.w400,
+                                fontFamily: "text1",
+                                color: Colors.black
                             ),
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8.0),
@@ -375,48 +387,68 @@ class _HomeState extends State<Home> {
             ),
           ),
 
-              Padding(
-              padding: const EdgeInsets.all(16.0),
-                child: Container(
-                  height: 134,
-                  width: 354,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.4),
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: Container(
+              height: 134,
+              width: 354,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.4),
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  ),
+                ],
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>PNRStatus()));
+                      },
+                      child: const ImageWithText(
+                        imagePath: 'assets/images/PNR.png',
+                        text: '  PNR\nCHECK',
                       ),
-                    ],
-                  ),
-                  child: const Padding(
-                    padding: EdgeInsets.all(16.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        ImageWithText(
-                          imagePath: 'assets/images/PNR.png',
-                          text: '  PNR\nCHECK',
-                        ),
-                        ImageWithText(
-                          imagePath: 'assets/images/GroupOrder.png',
-                          text: 'GROUP\nORDER',
-                        ),
-                        ImageWithText(
-                          imagePath: 'assets/images/Platform.png',
-                          text: 'PLATFORM\n  LOCATOR',
-                        ),
-                        ImageWithText(
-                          imagePath: 'assets/images/CoachPosition.png',
-                          text: '  COACH\nPOSITION',
-                        ),
-                      ],
                     ),
-                  ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupOrderPage()));
+                      },
+                      child: const ImageWithText(
+                        imagePath: 'assets/images/GroupOrder.png',
+                        text: 'GROUP\nORDER',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckPlatform()));
+                      },
+                      child: const ImageWithText(
+                        imagePath: 'assets/images/Platform.png',
+                        text: 'PLATFORM\n LOCATOR',
+                      ),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        // Handle onTap for COACH POSITION
+                      },
+                      child: const ImageWithText(
+                        imagePath: 'assets/images/CoachPosition.png',
+                        text: '  COACH\nPOSITION',
+                      ),
+                    ),
+                  ],
                 ),
               ),
+            ),
+          ),
 
           const Padding(
             padding: EdgeInsets.all(16.0),
