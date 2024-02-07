@@ -18,7 +18,6 @@ class Profile extends StatelessWidget {
                   fontFamily: "text1",
                   fontWeight: FontWeight.w700,
                   fontSize: 20,
-
               ),),
           ),
           const SizedBox(height: 30),

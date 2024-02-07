@@ -101,11 +101,11 @@ class _PlatformLocationState extends State<PlatformLocation> {
             child: Padding(
               padding: EdgeInsets.all(20.0),
               child: selectedCategory == 'Time Table'
-                  ? TimeTableWidget() // Replace TimeTableWidget with your widget for time table
+                  ? TimeTableWidget()
                   : selectedCategory == 'Coach\nPosition'
-                  ? CoachPositionWidget() // Replace CoachPositionWidget with your widget for coach position
+                  ? CoachPositionWidget()
                   : selectedCategory == 'Platform\nLocation'
-                  ? PlatformLocationWidget() // Replace PlatformLocationWidget with your widget for platform location
+                  ? PlatformLocationWidget()
                   : Container(),
             ),
           ),

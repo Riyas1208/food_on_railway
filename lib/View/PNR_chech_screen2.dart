@@ -113,7 +113,7 @@ class PNRStatusPage extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   color: AppColors.boxColor4,
-                  borderRadius: BorderRadius.circular(10), // Set border radius here
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 padding: const EdgeInsets.all(16),
                 child: Column(

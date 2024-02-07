@@ -10,7 +10,7 @@ class CartScreen extends StatefulWidget {
 }
 
 class _CartScreenState extends State<CartScreen> {
-  String? paymentMethod; // State variable to hold the selected payment method
+  String? paymentMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,7 @@ class _CartScreenState extends State<CartScreen> {
                               const SizedBox(height: 8),
                               InkWell(
                                 onTap: () {
-                                  // Your delete logic here
+
                                 },
                                 child: const Text(
                                   'Delete',
@@ -119,7 +119,7 @@ class _CartScreenState extends State<CartScreen> {
                                       child: IconButton(
                                         icon: const Icon(Icons.remove, color: AppColors.textColor),
                                         onPressed: () {
-                                          // Your logic for decreasing quantity
+
                                         },
                                       ),
                                     ),
@@ -137,7 +137,7 @@ class _CartScreenState extends State<CartScreen> {
                                     child: IconButton(
                                       icon: const Icon(Icons.add, color: Colors.white),
                                       onPressed: () {
-                                        // Your logic for increasing quantity
+
                                       },
                                     ),
                                   ),
@@ -155,7 +155,7 @@ class _CartScreenState extends State<CartScreen> {
             const SizedBox(height: 12,),
             TextButton(
               onPressed: () {
-                // Your logic for adding items
+
               },
               child: Row(
                 mainAxisSize: MainAxisSize.min,
@@ -172,7 +172,7 @@ class _CartScreenState extends State<CartScreen> {
                     ),
                     child: InkWell(
                       onTap: () {
-                        // Your logic for adding items
+
                       },
                       child: const Icon(
                         Icons.add,
@@ -231,7 +231,7 @@ class _CartScreenState extends State<CartScreen> {
                           ],
                         ),
                         Divider(
-                          color: Colors.grey, // You can adjust the color as needed
+                          color: Colors.grey,
                           thickness: 0.8,
                         ),
                         Row(
@@ -245,7 +245,7 @@ class _CartScreenState extends State<CartScreen> {
                           ],
                         ),
                         Divider(
-                          color: Colors.grey, // You can adjust the color as needed
+                          color: Colors.grey,
                           thickness: 0.8,
                         ),
                         // Radio buttons for payment options
@@ -260,8 +260,8 @@ class _CartScreenState extends State<CartScreen> {
                                       paymentMethod = value;
                                     });
                                   },
-                                  groupValue: paymentMethod, // Set the selected payment method
-                                  activeColor: Colors.red, // Set the color when selected
+                                  groupValue: paymentMethod,
+                                  activeColor: Colors.red,
                                 ),
                                 Text('Cash on Delivery'),
                               ],

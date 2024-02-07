@@ -46,14 +46,21 @@ class NotificationBubble extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold,
+                    fontFamily: "text1"
                   ),
                 ),
                 SizedBox(height: 8.0),
-                Text(
-                  date,
-                  style: TextStyle(
-                    color: Colors.grey,
-                  ),
+                Row(
+                  children: [
+                    Spacer(),
+                    Text(
+                      date,
+                      style: TextStyle(
+                        color: Colors.grey,
+                        fontFamily: "text1"
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),

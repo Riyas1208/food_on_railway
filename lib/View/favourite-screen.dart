@@ -44,7 +44,7 @@ class FavoriteScreen extends StatelessWidget {
         ),
       ),
       body: ListView.builder(
-        itemCount: 2, // Adjust the itemCount accordingly
+        itemCount: 2,
         itemBuilder: (context, index) {
           return const Row(
             children: [
@@ -57,13 +57,13 @@ class FavoriteScreen extends StatelessWidget {
                   imageUrl: "assets/images/burger1.png",
                 ),
               ),
-              SizedBox(width: 8), // Adjust the spacing between cards
+              SizedBox(width: 8),
               Expanded(
                 child: FoodCard(
                   name: 'Chicken Burger',
                   price: '₹20.00',
                   ingredients: '100g chicken + tomato + cheese + lettuce',
-                  rating: 3.8, // Replace with actual ratings
+                  rating: 3.8,
                   imageUrl: "assets/images/burger1.png",
                 ),
               ),

@@ -128,7 +128,6 @@ class ProductSingle extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 16.0),
-                // Your modified code for the container card
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.boxColor,
@@ -378,29 +377,26 @@ class ProductSingle extends StatelessWidget {
               ],
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Container(
-              height: 60,
-              width: double.infinity,
-              child: TextButton(
-                onPressed: () {
+          Container(
+            height: 60,
+            width: 350,
+            child: TextButton(
+              onPressed: () {
 
-                },
-                style: TextButton.styleFrom(
-                  backgroundColor: AppColors.textColor,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
+              },
+              style: TextButton.styleFrom(
+                backgroundColor: AppColors.textColor,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16),
                 ),
-                child: const Text(
-                  "Add cart",
-                  style: TextStyle(
-                      fontFamily: "text",
-                      fontSize: 14,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600),
-                ),
+              ),
+              child: const Text(
+                "Add cart",
+                style: TextStyle(
+                    fontFamily: "text",
+                    fontSize: 14,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600),
               ),
             ),
           ),

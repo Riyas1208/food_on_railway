@@ -97,7 +97,7 @@ class SignUpScreen extends StatelessWidget {
                 ),
                 child: ElevatedButton.icon(
                   onPressed: () {
-                    // Handle Google login
+
                   },
                   style: ElevatedButton.styleFrom(
                     primary: Colors.white,
