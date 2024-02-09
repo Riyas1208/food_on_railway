@@ -4,6 +4,8 @@ import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import 'package:food_on_railway/View/otp_verify_screen.dart';
 
 class SignUpScreen extends StatelessWidget {
+  const SignUpScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

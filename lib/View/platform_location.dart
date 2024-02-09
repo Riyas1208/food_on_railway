@@ -8,6 +8,8 @@ import 'Widget/platform_location_widget.dart';
 import 'Widget/time_table_widget.dart';
 
 class PlatformLocation extends StatefulWidget {
+  const PlatformLocation({super.key});
+
   @override
   _PlatformLocationState createState() => _PlatformLocationState();
 }

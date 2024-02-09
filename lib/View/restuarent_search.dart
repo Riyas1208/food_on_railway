@@ -5,6 +5,8 @@ import 'package:food_on_railway/View/Widget/restuarent_widget.dart';
 import 'Widget/bottom_nav_widget.dart';
 
 class RestuarentSearch extends StatelessWidget {
+  const RestuarentSearch({super.key});
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;

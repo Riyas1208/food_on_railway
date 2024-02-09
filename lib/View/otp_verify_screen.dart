@@ -7,7 +7,7 @@ class OTPVerificationPage extends StatefulWidget {
   List<TextEditingController> _otpControllers =
   List.generate(4, (index) => TextEditingController());
 
-  OTPVerificationPage({required this.phoneNumber});
+  OTPVerificationPage({super.key, required this.phoneNumber});
 
   @override
   _OTPVerificationPageState createState() => _OTPVerificationPageState();

@@ -8,6 +8,8 @@ import 'Widget/dotted_line_widget.dart';
 class PNRStatusPage extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
+  PNRStatusPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

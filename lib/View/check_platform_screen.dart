@@ -6,6 +6,8 @@ import 'package:food_on_railway/View/platform_location.dart';
 class CheckPlatform extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
+  CheckPlatform({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

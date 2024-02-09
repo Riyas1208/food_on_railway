@@ -3,6 +3,8 @@ import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import 'package:food_on_railway/View/login_screen.dart';
 
 class Create_Acc_Screen extends StatelessWidget {
+  const Create_Acc_Screen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

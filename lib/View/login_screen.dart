@@ -6,6 +6,8 @@ import 'package:food_on_railway/View/Widget/bottom_nav_widget.dart';
 import 'sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;

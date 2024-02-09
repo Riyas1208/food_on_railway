@@ -3,6 +3,8 @@ import 'package:food_on_railway/Model/Utils/app_colors.dart';
 
 
 class EmptyCart extends StatelessWidget {
+  const EmptyCart({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

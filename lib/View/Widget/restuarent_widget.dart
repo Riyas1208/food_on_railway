@@ -6,7 +6,7 @@ import 'package:food_on_railway/View/restuarent_screen.dart';
 class FoodItemWidget extends StatelessWidget {
   final Restuarent foodItem;
 
-  FoodItemWidget({required this.foodItem});
+  const FoodItemWidget({super.key, required this.foodItem});
 
   @override
   Widget build(BuildContext context) {
@@ -121,7 +121,7 @@ class FoodItemListWidget extends StatelessWidget {
   final List<Restuarent> foodItems;
   final String station;
 
-  FoodItemListWidget({required this.foodItems, required this.station});
+  const FoodItemListWidget({required this.foodItems, required this.station});
 
   @override
   Widget build(BuildContext context) {

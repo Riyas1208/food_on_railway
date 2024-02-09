@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
 
 class CoachPositionWidget extends StatefulWidget {
+  const CoachPositionWidget({super.key});
+
   @override
   _CoachPositionWidgetState createState() => _CoachPositionWidgetState();
 }

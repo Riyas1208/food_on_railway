@@ -4,6 +4,8 @@ import 'package:food_on_railway/View/Widget/food_item_widget.dart';
 import 'package:food_on_railway/View/restuarent_search.dart';
 
 class Restaurant extends StatefulWidget {
+  const Restaurant({super.key});
+
   @override
   _RestaurantState createState() => _RestaurantState();
 }

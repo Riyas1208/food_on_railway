@@ -4,6 +4,8 @@ import 'package:food_on_railway/View/empty_cart.dart';
 
 
 class OrderPlaced extends StatelessWidget {
+  const OrderPlaced({super.key});
+
   @override
   Widget build(BuildContext context) {
       return Scaffold(

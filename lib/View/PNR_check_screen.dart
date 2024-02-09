@@ -6,6 +6,8 @@ import 'package:food_on_railway/View/Widget/bottom_nav_widget.dart';
 class PNRStatus extends StatelessWidget {
   final TextEditingController _controller = TextEditingController();
 
+  PNRStatus({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

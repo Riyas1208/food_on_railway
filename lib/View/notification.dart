@@ -4,6 +4,8 @@ import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import '../Model/notification_model.dart';
 
 class NotificationApp extends StatelessWidget {
+  const NotificationApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(

@@ -5,6 +5,8 @@ import 'package:food_on_railway/View/login_screen.dart';
 
 
 class Onbording extends StatefulWidget {
+  const Onbording({super.key});
+
   @override
   _OnbordingState createState() => _OnbordingState();
 }
