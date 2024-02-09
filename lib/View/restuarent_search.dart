@@ -7,12 +7,14 @@ import 'Widget/bottom_nav_widget.dart';
 class RestuarentSearch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: EdgeInsets.all(screenSize.width * 0.02),
           child: Container(
             decoration: BoxDecoration(
               shape: BoxShape.circle,
@@ -26,7 +28,7 @@ class RestuarentSearch extends StatelessWidget {
                 );
               },
               child: Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: EdgeInsets.all(screenSize.width * 0.015),
                 child: Image.asset(
                   'assets/images/Back.png',
                   color: Colors.black,
@@ -40,17 +42,16 @@ class RestuarentSearch extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 30,),
+            SizedBox(height: screenSize.height * 0.01),
             Container(
-              height: 50, // Specify the desired height
+              height: screenSize.height * 0.08,
               child: Padding(
-                padding: EdgeInsets.all(8),
+                padding: EdgeInsets.all(screenSize.width * 0.02),
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: 'Select Stations',
                     border: InputBorder.none,
-                    suffixIcon: Icon(Icons.arrow_drop_down,
-                    color: Colors.black,),
+                    suffixIcon: Icon(Icons.arrow_drop_down, color: Colors.black,),
                   ),
                   cursorColor: Colors.black,
                 ),

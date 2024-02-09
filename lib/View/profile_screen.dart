@@ -8,24 +8,28 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top:70.0),
-            child: Text("Profile",
+            padding: EdgeInsets.only(top: screenSize.height * 0.04),
+            child: Text(
+              "Profile",
               style: TextStyle(
-                  fontFamily: "text1",
-                  fontWeight: FontWeight.w700,
-                  fontSize: 20,
-              ),),
+                fontFamily: "text1",
+                fontWeight: FontWeight.w700,
+                fontSize: screenSize.width * 0.05,
+              ),
+            ),
           ),
-          const SizedBox(height: 30),
+          SizedBox(height: screenSize.height * 0.01),
           Positioned(
-            top: 110,
-            left: 169,
+            top: screenSize.height * 0.19,
+            left: screenSize.width * 0.39,
             child: CircleAvatar(
-              radius: 50,
+              radius: screenSize.width * 0.14,
               backgroundImage: const AssetImage('assets/images/profile.png'),
               child: Stack(
                 children: [
@@ -33,8 +37,8 @@ class Profile extends StatelessWidget {
                     right: 0,
                     bottom: 2,
                     child: Container(
-                      width: 39,
-                      height: 39,
+                      width: screenSize.width * 0.10,
+                      height: screenSize.width * 0.10,
                       decoration: BoxDecoration(
                         color: AppColors.textColor,
                         shape: BoxShape.circle,
@@ -43,8 +47,8 @@ class Profile extends StatelessWidget {
                         child: Image.asset(
                           'assets/images/edit-line.png',
                           color: Colors.white,
-                          width: 24,
-                          height: 24,
+                          width: screenSize.width * 0.09,
+                          height: screenSize.width * 0.09,
                         ),
                       ),
                     ),
@@ -54,57 +58,57 @@ class Profile extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: EdgeInsets.all(screenSize.width * 0.03),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  height: 120,
-                  width: 388,
+                  height: screenSize.height * 0.15,
+                  width: screenSize.width * 0.95,
                   child: Card(
                     elevation: 1,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.all(12),
+                      padding: EdgeInsets.all(screenSize.width * 0.02),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Text(
+                          Text(
                             'Gilbert Jones',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: screenSize.width * 0.04,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Row(
                             children: [
-                              const Text(
+                              Text(
                                 'Gilbertjones01@gmail.com',
                                 style: TextStyle(
-                                  fontSize: 16,
+                                  fontSize: screenSize.width * 0.04,
                                   color: Colors.grey,
                                 ),
                               ),
-                              const SizedBox(width: 80),
+                              SizedBox(width: screenSize.width * 0.2),
                               TextButton(
                                 onPressed: () {},
-                                child: const Text(
+                                child: Text(
                                   'Edit',
                                   style: TextStyle(
                                     color: AppColors.textColor5,
-                                    fontSize: 16,
+                                    fontSize: screenSize.width * 0.04,
                                   ),
                                 ),
                               ),
                             ],
                           ),
-                          const Text(
+                          Text(
                             '121-224-7890',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: screenSize.width * 0.04,
                               color: Colors.grey,
                             ),
                           ),
@@ -113,57 +117,58 @@ class Profile extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 4),
+                SizedBox(height: screenSize.height * 0.005),
                 Card(
                   elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                   ),
                   child: ListTile(
                     leading: Image.asset(
                       'assets/images/heart-line.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
-                    title: const Text('Favorites',
+                    title: Text(
+                      'Favorites',
                       style: TextStyle(
-                          fontFamily: "text",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
-                      ),),
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: screenSize.width * 0.035,
+                      ),
+                    ),
                     trailing: Image.asset(
                       'assets/images/Vector.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     onTap: () {},
                   ),
                 ),
-
                 Card(
                   elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                   ),
                   child: ListTile(
                     leading: Image.asset(
                       'assets/images/history-line.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     title: const Text('Order History',
                       style: TextStyle(
-                          fontFamily: "text",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
                       ),),
                     trailing: Image.asset(
                       'assets/images/Vector.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     onTap: () {
@@ -174,25 +179,25 @@ class Profile extends StatelessWidget {
                 Card(
                   elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                   ),
                   child: ListTile(
                     leading: Image.asset(
                       'assets/images/group_order.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     title: const Text('Group Order',
                       style: TextStyle(
-                          fontFamily: "text",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
                       ),),
                     trailing: Image.asset(
                       'assets/images/Vector.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     onTap: () {},
@@ -201,25 +206,25 @@ class Profile extends StatelessWidget {
                 Card(
                   elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                   ),
                   child: ListTile(
                     leading: Image.asset(
                       'assets/images/help.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     title: const Text('Help',
                       style: TextStyle(
-                          fontFamily: "text",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
                       ),),
                     trailing: Image.asset(
                       'assets/images/Vector.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     onTap: () {},
@@ -228,25 +233,25 @@ class Profile extends StatelessWidget {
                 Card(
                   elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                   ),
                   child: ListTile(
                     leading: Image.asset(
                       'assets/images/info.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     title: const Text('About Us',
                       style: TextStyle(
-                          fontFamily: "text",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
                       ),),
                     trailing: Image.asset(
                       'assets/images/Vector.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     onTap: () {},
@@ -255,46 +260,55 @@ class Profile extends StatelessWidget {
                 Card(
                   elevation: 1,
                   shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.025),
                   ),
                   child: ListTile(
                     leading: Image.asset(
                       'assets/images/support.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     title: const Text('Support',
                       style: TextStyle(
-                          fontFamily: "text",
-                          fontWeight: FontWeight.w400,
-                          fontSize: 14,
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: 14,
                       ),),
                     trailing: Image.asset(
                       'assets/images/Vector.png',
-                      width: 24,
-                      height: 24,
+                      width: screenSize.width * 0.08,
+                      height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
                     onTap: () {},
                   ),
                 ),
+                SizedBox(height: screenSize.height * 0.02),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => LoginScreen()));
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(screenSize.width * 0.04),
+                      ),
+                      backgroundColor: AppColors.textColor,
+                    ),
+                    child: Text(
+                      'Logout',
+                      style: TextStyle(
+                        fontFamily: "text",
+                        fontWeight: FontWeight.w400,
+                        fontSize: screenSize.width * 0.035,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginScreen()));
-            },
-            style: ElevatedButton.styleFrom(
-            ),
-            child: const Text('Logout',
-            style: TextStyle(
-              fontFamily: "text",
-              fontWeight: FontWeight.w400,
-              fontSize: 14,
-              color:AppColors.textColor
-            ),),
           ),
         ],
       ),

@@ -16,30 +16,30 @@ class Create_Acc_Screen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const Text(
+              Text(
                 "Create an Account",
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: MediaQuery.of(context).size.width * 0.06,
                   fontWeight: FontWeight.w600,
                   fontFamily: "text",
                 ),
               ),
               const SizedBox(height: 8),
-              const Text(
+              Text(
                 "Hello, welcome back to our account",
                 style: TextStyle(
-                  fontSize: 16,
+                  fontSize: MediaQuery.of(context).size.width * 0.04,
                   color: AppColors.textColor1,
                   fontFamily: "text",
                 ),
               ),
-              const SizedBox(height: 140),
+              const SizedBox(height: 150),
               TextFormField(
                 cursorColor: AppColors.textColor1,
                 decoration: InputDecoration(
                   hintText: 'Password',
-                  hintStyle: const TextStyle(
-                    fontSize: 14,
+                  hintStyle: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.035,
                     fontFamily: 'text',
                     fontWeight: FontWeight.w600,
                     color: AppColors.textColor1,
@@ -47,31 +47,33 @@ class Create_Acc_Screen extends StatelessWidget {
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: AppColors.textColor1),
                   ),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.width * 0.04,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   prefixIcon: Container(
                     constraints: const BoxConstraints(
                       maxWidth: 50,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6.0),
+                      padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.015),
                       child: Image.asset(
                         'assets/images/password.png',
-                        width: 24,
-                        height: 24,
+                        width: MediaQuery.of(context).size.width * 0.08,
+                        height: MediaQuery.of(context).size.width * 0.08,
                         color: AppColors.textColor1,
                       ),
                     ),
                   ),
                 ),
-
               ),
-              SizedBox(height: 24,),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.06),
               TextFormField(
                 cursorColor: AppColors.textColor1,
                 decoration: InputDecoration(
                   hintText: 'Confirm Password',
-                  hintStyle: const TextStyle(
-                    fontSize: 14,
+                  hintStyle: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.035,
                     fontFamily: 'text',
                     fontWeight: FontWeight.w600,
                     color: AppColors.textColor1,
@@ -79,26 +81,28 @@ class Create_Acc_Screen extends StatelessWidget {
                   focusedBorder: const UnderlineInputBorder(
                     borderSide: BorderSide(color: AppColors.textColor1),
                   ),
-                  contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
+                  contentPadding: EdgeInsets.symmetric(
+                    vertical: MediaQuery.of(context).size.width * 0.04,
+                    horizontal: MediaQuery.of(context).size.width * 0.05,
+                  ),
                   prefixIcon: Container(
                     constraints: const BoxConstraints(
                       maxWidth: 50,
                     ),
                     child: Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 6.0),
+                      padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.width * 0.015),
                       child: Image.asset(
                         'assets/images/password.png',
-                        width: 24,
-                        height: 24,
+                        width: MediaQuery.of(context).size.width * 0.08,
+                        height: MediaQuery.of(context).size.width * 0.08,
                         color: AppColors.textColor1,
                       ),
                     ),
                   ),
                 ),
-
               ),
-              SizedBox(height: 60,),
-              const Row(
+              SizedBox(height: MediaQuery.of(context).size.width * 0.12),
+              Row(
                 children: [
                   Expanded(
                     child: Divider(
@@ -106,9 +110,9 @@ class Create_Acc_Screen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 8),
-                    child: Text('OR',style: TextStyle(
-                        fontSize: 12,
+                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.02),
+                    child: Text('OR', style: TextStyle(
+                        fontSize: MediaQuery.of(context).size.width * 0.03,
                         fontFamily: "text",
                         fontWeight: FontWeight.w600,
                         color: Colors.black
@@ -121,11 +125,10 @@ class Create_Acc_Screen extends StatelessWidget {
                   ),
                 ],
               ),
-
-              const SizedBox(height: 24),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.12),
               Container(
-                width: 356,
-                height: 57,
+                width: MediaQuery.of(context).size.width * 0.8,
+                height: MediaQuery.of(context).size.width * 0.15,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -134,18 +137,17 @@ class Create_Acc_Screen extends StatelessWidget {
                     // Handle Google login
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
                   ),
                   icon: Padding(
-                    padding: const EdgeInsets.only(right: 25.0),
+                    padding: EdgeInsets.only(right: MediaQuery.of(context).size.width * 0.07),
                     child: Image.asset(
                       'assets/images/google.png',
-                      height: 30,
-                      width: 30,
+                      height: MediaQuery.of(context).size.width * 0.1,
+                      width: MediaQuery.of(context).size.width * 0.1,
                     ),
                   ),
                   label: const Text(
@@ -158,11 +160,9 @@ class Create_Acc_Screen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 5),
-
-              const SizedBox(height:170),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.40),
               Container(
-                height: 60,
+                height: MediaQuery.of(context).size.width * 0.15,
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {

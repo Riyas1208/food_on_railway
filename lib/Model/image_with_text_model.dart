@@ -16,8 +16,7 @@ class ImageWithText extends StatelessWidget {
     return Column(
       children: [
         Container(
-          width: 50,
-          height: 50,
+          constraints: BoxConstraints(maxWidth: 50, maxHeight: 50),
           decoration: const BoxDecoration(
             shape: BoxShape.circle,
             color: AppColors.clipColor,
@@ -30,13 +29,15 @@ class ImageWithText extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 8),
-        Text(text,
-          style:const TextStyle(
+        Text(
+          text,
+          style: const TextStyle(
             fontFamily: "text",
             fontWeight: FontWeight.w500,
             fontSize: 12,
-            color: AppColors.textColor4
-          ) ,),
+            color: AppColors.textColor4,
+          ),
+        ),
       ],
     );
   }

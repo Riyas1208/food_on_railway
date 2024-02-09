@@ -14,6 +14,8 @@ class _RestaurantState extends State<Restaurant> {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -21,7 +23,7 @@ class _RestaurantState extends State<Restaurant> {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.boxColor,
             ),
@@ -48,7 +50,7 @@ class _RestaurantState extends State<Restaurant> {
           children: [
             // Restaurant information
             Container(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(screenSize.width * 0.04),
               child: Row(
                 children: [
                   Expanded(
@@ -56,51 +58,52 @@ class _RestaurantState extends State<Restaurant> {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      height: 110,
+                      height: screenSize.height * 0.13,
                       child: Card(
                         elevation: 3,
                         child: Padding(
-                          padding: const EdgeInsets.all(10.0),
+                          padding: EdgeInsets.all(screenSize.width * 0.03),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
-                                  const Text(
+                                  Text(
                                     'DXB RESTAURANT',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: screenSize.width * 0.06,
                                       fontWeight: FontWeight.w700,
                                       fontFamily: "text",
                                       color: Colors.black,
                                     ),
                                   ),
-                                  const Spacer(),
+                                  Spacer(),
                                   Image.asset("assets/images/share.png"),
                                 ],
                               ),
-                              const SizedBox(height: 8),
-                              const Row(
+                              SizedBox(height: screenSize.height * 0.01),
+                              Row(
                                 children: [
                                   Icon(Icons.star,
-                                      size: 16, color: AppColors.boxColor6),
+                                      size: screenSize.width * 0.04, color: AppColors.boxColor6),
                                   Text(
                                     '3.8',
                                     style: TextStyle(
                                       fontFamily: "text",
-                                      fontSize: 12,
+                                      fontSize: screenSize.width * 0.035,
                                       fontWeight: FontWeight.w500,
                                       color: Colors.black,
                                     ),
                                   ),
                                 ],
                               ),
-                              const Text(
+                              SizedBox(height: screenSize.height * 0.01),
+                              Text(
                                 "Chicken Ba Bap burger , Chicken Bada Bap burger......",
                                 style: TextStyle(
                                   fontFamily: "text",
                                   fontWeight: FontWeight.w400,
-                                  fontSize: 10,
+                                  fontSize: screenSize.width * 0.028,
                                   color: AppColors.textColor4,
                                 ),
                               )
@@ -114,7 +117,7 @@ class _RestaurantState extends State<Restaurant> {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: EdgeInsets.all(screenSize.width * 0.04),
               child: Container(
                 decoration: BoxDecoration(
                     color: AppColors.boxColor,
@@ -124,45 +127,49 @@ class _RestaurantState extends State<Restaurant> {
                   decoration: InputDecoration(
                     hintText: 'Search For dishes',
                     border: InputBorder.none,
-                    prefixIcon: const Icon(Icons.search,color: Colors.black,),
+                    prefixIcon: Icon(Icons.search,color: Colors.black,),
                   ),
                   cursorColor: Colors.black,
                 ),
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(right: 270),
-              child: Container(
-                width: 110,
-                decoration: BoxDecoration(
-                    color: AppColors.boxColor,
-                    borderRadius: BorderRadius.circular(4)
-                ),
-                child: Row(
-                  children: [
-                    Image.asset(_imageAsset),
-                    SizedBox(width: 4,),
-                    Expanded(
-                      child: DropdownButton<String>(
-                        value: _selectedOption,
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            _selectedOption = newValue!;
-                            _imageAsset = _selectedOption == 'veg'
-                                ? "assets/images/veg.png"
-                                : "assets/images/nonveg.png";
-                          });
-                        },
-                        items: <String>['veg', 'non veg']
-                            .map<DropdownMenuItem<String>>((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(value),
-                          );
-                        }).toList(),
+              padding: EdgeInsets.only(right: screenSize.width * 0.62),
+              child: Card(
+                elevation: 1,
+                child: Container(
+                  width: screenSize.width * 0.29,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(4),
+
+                  ),
+                  child: Row(
+                    children: [
+                      Image.asset(_imageAsset),
+                      SizedBox(width: screenSize.width * 0.01),
+                      Expanded(
+                        child: DropdownButton<String>(
+                          value: _selectedOption,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              _selectedOption = newValue!;
+                              _imageAsset = _selectedOption == 'veg'
+                                  ? "assets/images/veg.png"
+                                  : "assets/images/nonveg.png";
+                            });
+                          },
+                          items: <String>['veg', 'non veg']
+                              .map<DropdownMenuItem<String>>((String value) {
+                            return DropdownMenuItem<String>(
+                              value: value,
+                              child: Text(value),
+                            );
+                          }).toList(),
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

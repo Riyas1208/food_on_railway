@@ -8,13 +8,15 @@ import 'sign_up_screen.dart';
 class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: MediaQuery.of(context).size.height * 0.1,
-            horizontal: MediaQuery.of(context).size.width * 0.1,
+            vertical: screenSize.height * 0.1,
+            horizontal: screenSize.width * 0.1,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -69,14 +71,14 @@ class LoginScreen extends StatelessWidget {
 
               const SizedBox(height: 16),
               Container(
-                constraints: const BoxConstraints(
+                constraints: BoxConstraints(
                   maxWidth: 330,
                   maxHeight: double.infinity,
                 ),
                 child: TextFormField(
                   cursorColor: AppColors.textColor1,
                   decoration: InputDecoration(
-                    hintText: '               Password',
+                    hintText: '                Password',
                     hintStyle: const TextStyle(
                       fontSize: 14,
                       fontFamily: 'text',
@@ -88,7 +90,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
                     prefixIcon: Container(
-                      constraints: const BoxConstraints(
+                      constraints: BoxConstraints(
                         maxWidth: 50,
                       ),
                       child: Padding(
@@ -105,8 +107,6 @@ class LoginScreen extends StatelessWidget {
 
                 ),
               ),
-
-
 
               Align(
                 alignment: Alignment.centerRight,
@@ -148,8 +148,8 @@ class LoginScreen extends StatelessWidget {
 
               const SizedBox(height: 16),
               Container(
-                width: 356,
-                height: 57,
+                width: screenSize.width * 0.95,
+                height: screenSize.height * 0.080,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -158,8 +158,7 @@ class LoginScreen extends StatelessWidget {
                     // Handle Google login
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -168,8 +167,8 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 25.0),
                     child: Image.asset(
                       'assets/images/google.png',
-                      height: 30,
-                      width: 30,
+                      height: screenSize.height * 0.045,
+                      width: screenSize.height * 0.045,
                     ),
                   ),
                   label: const Text(
@@ -216,7 +215,7 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height:170),
               Container(
-                height: 60,
+                height: screenSize.height * 0.08,
                 width: double.infinity,
                 child: TextButton(
                   onPressed: () {

@@ -4,12 +4,14 @@ import 'package:food_on_railway/Model/Utils/app_colors.dart';
 class ProductSingle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+
     return Scaffold(
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           Container(
-            width: 430,
+            width: screenSize.width,
             child: Stack(
               children: [
                 Image.asset(
@@ -17,24 +19,24 @@ class ProductSingle extends StatelessWidget {
                   fit: BoxFit.fitWidth,
                 ),
                 Positioned(
-                  top: 34,
-                  left: 344,
+                  top: screenSize.height * 0.05,
+                  left: screenSize.width * 0.8,
                   child: Stack(
                     children: [
                       Container(
-                        height: 45,
-                        width: 45,
-                        decoration: const BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Colors.white
+                        height: screenSize.width * 0.12,
+                        width: screenSize.width * 0.12,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Colors.white
                         ),
                       ),
                       Center(
                         child: IconButton(
-                          icon: const Icon(
+                          icon: Icon(
                             Icons.favorite,
                             color: AppColors.secondaryColor,
-                            size: 20,
+                            size: screenSize.width * 0.06,
                           ),
                           onPressed: () {},
                         ),
@@ -43,8 +45,8 @@ class ProductSingle extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: 24,
-                  left: 36,
+                  top: screenSize.height * 0.04,
+                  left: screenSize.width * 0.08,
                   child: GestureDetector(
                     onTap: () {
                       Navigator.pop(context);
@@ -52,16 +54,16 @@ class ProductSingle extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Container(
-                        height: 45,
-                        width: 45,
-                        decoration: const BoxDecoration(
+                        height: screenSize.width * 0.12,
+                        width: screenSize.width * 0.12,
+                        decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Colors.white,
                         ),
                         child: Image.asset(
                           'assets/images/Back.png',
-                          width: 30,
-                          height: 30,
+                          width: screenSize.width * 0.1,
+                          height: screenSize.width * 0.1,
                           color: Colors.black,
                         ),
                       ),
@@ -131,7 +133,7 @@ class ProductSingle extends StatelessWidget {
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.boxColor,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(screenSize.width * 0.05),
                   ),
                   child: Card(
                     child: Padding(
@@ -143,7 +145,7 @@ class ProductSingle extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Image.asset('assets/images/nonveg.png', width: 50, height: 50,),
+                                  Image.asset('assets/images/nonveg.png', width: screenSize.width * 0.12, height: screenSize.width * 0.12,),
                                   const SizedBox(width: 8),
                                   const Text('Qtr', style: TextStyle(fontWeight: FontWeight.bold)),
                                   const SizedBox(width: 68),
@@ -174,12 +176,12 @@ class ProductSingle extends StatelessWidget {
                                 ],
                               ),
                               Container(
-                                height: 40,
-                                width: 100,
+                                height: screenSize.height * 0.05,
+                                width: screenSize.width * 0.25,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.rectangle,
                                   color: AppColors.unselctedColor,
-                                  borderRadius: BorderRadius.circular(10),
+                                  borderRadius: BorderRadius.circular(screenSize.width * 0.04),
                                   border: Border.all(
                                     color: AppColors.textColor,
                                     width: 2,
@@ -195,8 +197,8 @@ class ProductSingle extends StatelessWidget {
                                           onTap: () {
                                           },
                                           child: Container(
-                                            width: 25,
-                                            height: 25,
+                                            width: screenSize.width * 0.06,
+                                            height: screenSize.width * 0.06,
                                             child: const Icon(
                                               Icons.remove,
                                               color: Colors.white,
@@ -225,8 +227,8 @@ class ProductSingle extends StatelessWidget {
 
                                           },
                                           child: Container(
-                                            height: 25,
-                                            width: 25,
+                                            height: screenSize.width * 0.06,
+                                            width: screenSize.width * 0.06,
                                             child: const Icon(
                                               Icons.add,
                                               color: Colors.white,
@@ -248,7 +250,7 @@ class ProductSingle extends StatelessWidget {
                             children: [
                               Row(
                                 children: [
-                                  Image.asset('assets/images/nonveg.png', width: 50, height: 50,),
+                                  Image.asset('assets/images/nonveg.png', width: screenSize.width * 0.12, height: screenSize.width * 0.12,),
                                   const SizedBox(width: 8),
                                   const Text('Qtr', style: TextStyle(fontWeight: FontWeight.bold)),
                                   const SizedBox(width: 68),
@@ -278,21 +280,18 @@ class ProductSingle extends StatelessWidget {
                                 ],
                               ),
                               Container(
-                                height: 40,
-                                width: 100,
+                                height: screenSize.height * 0.05,
+                                width: screenSize.width * 0.25,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: AppColors.textColor
+                                    borderRadius: BorderRadius.circular(screenSize.width * 0.03),
+                                    color: AppColors.textColor
                                 ),
                                 child: TextButton(
-                                    onPressed: ()
-                                    {
-
-                                    },
+                                    onPressed: () {},
                                     child: const Text("ADD",
-                                style: TextStyle(
-                                  color: Colors.white
-                                ),)
+                                      style: TextStyle(
+                                          color: Colors.white
+                                      ),)
                                 ),
                               )
                             ],
@@ -329,9 +328,9 @@ class ProductSingle extends StatelessWidget {
                               fontSize: 12
                           ),),
                         Text('₹130',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold
-                        ),),
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold
+                          ),),
                       ],
                     ),
                     SizedBox(height: 6,),
@@ -339,10 +338,10 @@ class ProductSingle extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text('Taxes and charges',
-                        style: TextStyle(
-                          color: AppColors.textColor4,
-                          fontSize: 12
-                        ),),
+                          style: TextStyle(
+                              color: AppColors.textColor4,
+                              fontSize: 12
+                          ),),
                         Text('₹130',
                           style: TextStyle(
                               fontWeight: FontWeight.bold
@@ -378,16 +377,14 @@ class ProductSingle extends StatelessWidget {
             ),
           ),
           Container(
-            height: 60,
-            width: 350,
+            height: screenSize.height * 0.07,
+            width: screenSize.width * 0.85,
             child: TextButton(
-              onPressed: () {
-
-              },
+              onPressed: () {},
               style: TextButton.styleFrom(
                 backgroundColor: AppColors.textColor,
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(16),
+                  borderRadius: BorderRadius.circular(screenSize.width * 0.04),
                 ),
               ),
               child: const Text(

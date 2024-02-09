@@ -63,22 +63,22 @@ class NotificationScreen extends StatelessWidget {
             NotificationBubble(
               imageUrl: "assets/images/notify.png",
               message: "Meetup scheduled on 'Art for Everyone' Community",
-              date: "Today, 6:00 PM",
+              date: "16/12/2023 11 :00 PM",
             ),
             NotificationBubble(
               imageUrl: "assets/images/notify.png",
               message: "Meetup scheduled on 'Art for Everyone' Community",
-              date: "yesterday, 10:00 AM",
+              date: "16/12/2023 11 :00 PM",
             ),
             NotificationBubble(
               imageUrl: "assets/images/notify.png",
               message: "Meetup scheduled on 'Art for Everyone' Community",
-              date: "Today, 6:00 PM",
+              date: "16/12/2023 11 :00 PM",
             ),
             NotificationBubble(
               imageUrl: "assets/images/notify.png",
               message: "Meetup scheduled on 'Art for Everyone' Community",
-              date: "yesterday, 10:00 AM",
+              date: "16/12/2023 11 :00 PM",
             ),
           ],
         ),

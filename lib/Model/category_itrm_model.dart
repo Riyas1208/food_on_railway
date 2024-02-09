@@ -23,12 +23,12 @@ class CategoryItem extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        width: 150,
+        constraints: BoxConstraints(minWidth: 150),
         margin: const EdgeInsets.all(15),
         decoration: BoxDecoration(
           color: boxColor,
           borderRadius: BorderRadius.circular(10),
-          border: Border.all( // Add border
+          border: Border.all(
             color: borderColor,
             width: 2,
           ),
@@ -48,6 +48,7 @@ class CategoryItem extends StatelessWidget {
               width: 60,
               height: 60,
             ),
+            SizedBox(width: 8),
             Text(
               title,
               style: TextStyle(

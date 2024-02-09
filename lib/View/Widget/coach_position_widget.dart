@@ -27,43 +27,51 @@ class _CoachPositionWidgetState extends State<CoachPositionWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.builder(
-        itemCount: _buttons.length,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 4,
-          childAspectRatio: 2.0,
-        ),
-        itemBuilder: (context, index) {
-          return Padding(
-            padding: EdgeInsets.all(4),
-            child: GestureDetector(
-              onTap: () {
-                setState(() {
-                  _selectedIndex = index;
-                });
-              },
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white, // Always white
-                  borderRadius: BorderRadius.circular(4),
-                  border: Border.all(
-                    color: _selectedIndex == index ? Colors.red : AppColors.boxColor6,
-                    width: 1,
-                  ),
-                ),
-                child: Center(
-                  child: Text(
-                    _buttons[index],
-                    style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 14,
-                      fontFamily: "text1",
-                      color: _selectedIndex == index ? Colors.red : AppColors.boxColor6,
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          double buttonWidth = constraints.maxWidth / 4 - 8;
+          double buttonHeight = buttonWidth / 2;
+          return GridView.builder(
+            itemCount: _buttons.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              childAspectRatio: 2.0,
+            ),
+            itemBuilder: (context, index) {
+              return Padding(
+                padding: EdgeInsets.all(4),
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  child: Container(
+                    width: buttonWidth,
+                    height: buttonHeight,
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(4),
+                      border: Border.all(
+                        color: _selectedIndex == index ? Colors.red : AppColors.boxColor6,
+                        width: 1,
+                      ),
+                    ),
+                    child: Center(
+                      child: Text(
+                        _buttons[index],
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          fontSize: 14,
+                          fontFamily: "text1",
+                          color: _selectedIndex == index ? Colors.red : AppColors.boxColor6,
+                        ),
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ),
+              );
+            },
           );
         },
       ),

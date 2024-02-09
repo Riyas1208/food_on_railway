@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:food_on_railway/Model/Utils/app_colors.dart';
 
 class NotificationBubble extends StatelessWidget {
-  final String imageUrl; // Change from IconData to String for image URL
+  final String imageUrl;
   final String message;
   final String date;
 
@@ -15,8 +16,8 @@ class NotificationBubble extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.0),
-      padding: EdgeInsets.all(16.0),
+      margin: const EdgeInsets.only(bottom: 16.0),
+      padding: const EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(8.0),
@@ -24,40 +25,47 @@ class NotificationBubble extends StatelessWidget {
           BoxShadow(
             color: Colors.grey.withOpacity(0.3),
             blurRadius: 4,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
       child: Row(
         children: [
-          Image.asset(
-            imageUrl,
-            width: 32,
-            height: 32,
-            color: Colors.purple,
+          Container(
+            constraints: BoxConstraints(maxWidth: 50, maxHeight: 50),
+            decoration: const BoxDecoration(
+              shape: BoxShape.circle,
+            ),
+            child: ClipOval(
+              child: Image.asset(
+                imageUrl,
+                fit: BoxFit.fill,
+              ),
+            ),
           ),
-          SizedBox(width: 16.0),
+          const SizedBox(width: 16.0),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                const SizedBox(height: 8.0),
                 Text(
                   message,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: "text1"
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                    fontFamily: "text1",
                   ),
                 ),
-                SizedBox(height: 8.0),
+                const SizedBox(height: 8.0),
                 Row(
                   children: [
-                    Spacer(),
+                    const Spacer(),
                     Text(
                       date,
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontFamily: "text1"
+                      style: const TextStyle(
+                        color: AppColors.textColor4,
+                        fontFamily: "text1",
                       ),
                     ),
                   ],

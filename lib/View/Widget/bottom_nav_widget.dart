@@ -20,13 +20,16 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    double navItemWidth = MediaQuery.of(context).size.width / 5;
+    double elevatedButtonWidth = MediaQuery.of(context).size.width / 4;
+
     return Scaffold(
       body: PageStorage(
         child: _pages[_currentIndex],
         bucket: PageStorageBucket(),
       ),
       bottomNavigationBar: Container(
-        height: 69,
+        height: MediaQuery.of(context).size.height * 0.1,
         width: double.infinity,
         decoration: const BoxDecoration(
           color: Colors.white,
@@ -34,17 +37,17 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            _buildNavItem('assets/images/home.png', 0),
-            _buildNavItem('assets/images/Cart.png', 1),
-            _buildNavItem('assets/images/user.png', 2),
-            _buildElevatedButton(),
+            _buildNavItem('assets/images/home.png', 0, navItemWidth),
+            _buildNavItem('assets/images/Cart.png', 1, navItemWidth),
+            _buildNavItem('assets/images/user.png', 2, navItemWidth),
+            _buildElevatedButton(elevatedButtonWidth),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildNavItem(String imagePath, int index) {
+  Widget _buildNavItem(String imagePath, int index, double width) {
     bool isSelected = _currentIndex == index;
 
     return GestureDetector(
@@ -54,39 +57,37 @@ class _MyHomePageState extends State<MyHomePage> {
         });
       },
       child: Container(
-        width: 70,
-        height: 60,
+        width: width,
+        height: MediaQuery.of(context).size.height * 0.07,
         child: Image.asset(
           imagePath,
-          width: 80,
-          height: 80,
           color: isSelected ? AppColors.textColor : Colors.black,
         ),
       ),
     );
   }
 
-  Widget _buildElevatedButton() {
+  Widget _buildElevatedButton(double width) {
     return Container(
-      height: 31,
-      width: 117,
+      height: MediaQuery.of(context).size.height * 0.04,
+      width: MediaQuery.of(context).size.height * 0.150,
       child: ElevatedButton(
         onPressed: () {},
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.textColor
+            backgroundColor: AppColors.textColor
         ),
         child: Row(
           children: [
             Image.asset(
               'assets/images/train.png',
               color: Colors.white,
-              width: 24,
-              height: 24,
+              width: MediaQuery.of(context).size.width * 0.03,
             ),
+            const SizedBox(width: 5),
             const Text(
               'Railway services',
               style: TextStyle(
-                fontSize: 7,
+                fontSize: 10,
                 fontFamily: "text",
                 fontWeight: FontWeight.w500,
                 color: Colors.white,
@@ -97,7 +98,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }
-
-
