@@ -5,6 +5,8 @@ import '../Model/Utils/app_colors.dart';
 import 'Widget/bottom_nav_widget.dart';
 
 class GroupOrderPage extends StatefulWidget {
+  const GroupOrderPage({super.key});
+
   @override
   _GroupOrderPageState createState() => _GroupOrderPageState();
 }
