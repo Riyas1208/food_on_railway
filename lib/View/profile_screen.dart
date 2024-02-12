@@ -30,7 +30,7 @@ class Profile extends StatelessWidget {
             left: screenSize.width * 0.39,
             child: CircleAvatar(
               radius: screenSize.width * 0.14,
-              backgroundImage: const AssetImage('assets/images/profile.png'),
+              backgroundImage: AssetImage('assets/images/profile.png'),
               child: Stack(
                 children: [
                   Positioned(
@@ -62,7 +62,7 @@ class Profile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Container(
+                SizedBox(
                   height: screenSize.height * 0.15,
                   width: screenSize.width * 0.95,
                   child: Card(

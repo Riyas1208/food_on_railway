@@ -162,7 +162,7 @@ class Create_Acc_Screen extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.width * 0.40),
+              SizedBox(height: MediaQuery.of(context).size.width * 0.20),
               Container(
                 height: MediaQuery.of(context).size.width * 0.15,
                 width: double.infinity,
