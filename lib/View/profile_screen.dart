@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
+import 'package:food_on_railway/View/favourite-screen.dart';
+import 'package:food_on_railway/View/group_order_screen.dart';
 import 'package:food_on_railway/View/login_screen.dart';
 import 'package:food_on_railway/View/order_history.dart';
 
@@ -144,7 +146,9 @@ class Profile extends StatelessWidget {
                       height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>FavoriteScreen()));
+                    },
                   ),
                 ),
                 Card(
@@ -200,7 +204,9 @@ class Profile extends StatelessWidget {
                       height: screenSize.width * 0.08,
                       color: Colors.black,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>GroupOrderPage()));
+                    },
                   ),
                 ),
                 Card(

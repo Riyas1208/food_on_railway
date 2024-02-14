@@ -20,6 +20,8 @@ class AppColors {
   static const Color textColor8 = Color(0xFF5F732C);
   static const Color boxColor6 = Color(0xFFFF994A);
   static const Color textColor9 = Color(0xFFA0A5BA);
+  static const Color boxColor5 = Color(0xFFD3D3D3);
+  static const Color textColor10 = Color(0xFF48AA98);
 
 
 }

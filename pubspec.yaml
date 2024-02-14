@@ -43,6 +43,7 @@ dependencies:
   provider: ^6.1.1
   flutter_custom_carousel_slider: ^1.0.0
   carousel_slider: ^4.2.1
+  google_maps_flutter: ^2.2.0
 
 
 
@@ -101,7 +102,12 @@ flutter:
     - family: text3
       fonts:
         - asset: assets/fonts/HindGuntur-Regular.ttf
-
+    - family: text4
+      fonts:
+        - asset: assets/fonts/KronaOne-Regular.ttf
+    - family: text5
+      fonts:
+        - asset: assets/fonts/Roboto-Regular.ttf
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf

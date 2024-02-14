@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
+import 'order_single.dart';
 
 class OrderHistoryScreen extends StatelessWidget {
-  const OrderHistoryScreen({super.key});
+  const OrderHistoryScreen({Key? key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:AppBar(
+      appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         leading: Padding(
@@ -20,7 +21,6 @@ class OrderHistoryScreen extends StatelessWidget {
             child: GestureDetector(
               onTap: () {
                 Navigator.pop(context);
-
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
@@ -46,97 +46,121 @@ class OrderHistoryScreen extends StatelessWidget {
         ),
       ),
       body: ListView(
-        children: const [
-          Card(
-            margin: EdgeInsets.all(8),
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Order #150897',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: "text3",
-                            fontWeight: FontWeight.bold
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderTracker()),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.all(8),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Order #150897',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "text3",
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      Text('9:41 PM | 1 item, \$2.99',style: TextStyle(
-                          color: AppColors.textColor4
-                      ),),
-                    ],
-                  ),
-                  Text(
-                    'Processing',
-                    style: TextStyle(color: Colors.orange),
-                  ),
-                ],
+                        Text(
+                          '9:41 PM | 1 item, \$2.99',
+                          style: TextStyle(color: AppColors.textColor4),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      'Processing',
+                      style: TextStyle(color: Colors.orange),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          Card(
-            margin: EdgeInsets.all(8),
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Order #150896',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: "text3",
-                            fontWeight: FontWeight.bold
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderTracker()),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.all(8),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Order #150896',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "text3",
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      Text('8:15 PM | 2 items, \$5.98',style: TextStyle(
-                          color: AppColors.textColor4
-                      ),),
-                    ],
-                  ),
-                  Text(
-                    'Completed',
-                    style: TextStyle(color: Colors.green),
-                  ),
-                ],
+                        Text(
+                          '8:15 PM | 2 items, \$5.98',
+                          style: TextStyle(color: AppColors.textColor4),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      'Completed',
+                      style: TextStyle(color: Colors.green),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-          Card(
-            margin: EdgeInsets.all(8),
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        'Order #150895',
-                        style: TextStyle(
-                            fontSize: 16,
-                            fontFamily: "text3",
-                            fontWeight: FontWeight.bold
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => OrderTracker()),
+              );
+            },
+            child: Card(
+              margin: const EdgeInsets.all(8),
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: const [
+                        Text(
+                          'Order #150895',
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontFamily: "text3",
+                              fontWeight: FontWeight.bold),
                         ),
-                      ),
-                      Text('7:30 PM | 3 items, \$8.97',style: TextStyle(
-                        color: AppColors.textColor4
-                      ),),
-                    ],
-                  ),
-                  Text(
-                    'Completed',
-                    style: TextStyle(color: Colors.green),
-                  ),
-                ],
+                        Text(
+                          '7:30 PM | 3 items, \$8.97',
+                          style: TextStyle(color: AppColors.textColor4),
+                        ),
+                      ],
+                    ),
+                    const Text(
+                      'Completed',
+                      style: TextStyle(color: Colors.green),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
