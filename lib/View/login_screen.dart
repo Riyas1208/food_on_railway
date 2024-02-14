@@ -3,22 +3,15 @@ import 'package:country_code_picker/country_code_picker.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import 'package:food_on_railway/View/Widget/bottom_nav_widget.dart';
 
-import 'sign_up_screen.dart';
-
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
-    final Size screenSize = MediaQuery.of(context).size;
-
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.symmetric(
-            vertical: screenSize.height * 0.1,
-            horizontal: screenSize.width * 0.1,
+            vertical: MediaQuery.of(context).size.height * 0.1,
+            horizontal: MediaQuery.of(context).size.width * 0.1,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +35,6 @@ class LoginScreen extends StatelessWidget {
               ),
               const SizedBox(height: 80),
               TextFormField(
-                textAlign: TextAlign.start,
                 cursorColor: AppColors.textColor1,
                 decoration: const InputDecoration(
                   hintText: 'Mobile Number',
@@ -70,17 +62,17 @@ class LoginScreen extends StatelessWidget {
                   isCollapsed: true,
                 ),
               ),
-
               const SizedBox(height: 16),
               Container(
-                constraints: BoxConstraints(
+                constraints: const BoxConstraints(
                   maxWidth: 330,
                   maxHeight: double.infinity,
                 ),
                 child: TextFormField(
+                  textAlign: TextAlign.center,
                   cursorColor: AppColors.textColor1,
                   decoration: InputDecoration(
-                    hintText: '                Password',
+                    hintText: 'Password',
                     hintStyle: const TextStyle(
                       fontSize: 14,
                       fontFamily: 'text',
@@ -90,26 +82,17 @@ class LoginScreen extends StatelessWidget {
                     focusedBorder: const UnderlineInputBorder(
                       borderSide: BorderSide(color: AppColors.textColor1),
                     ),
-                    contentPadding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 20.0),
-                    prefixIcon: Container(
-                      constraints: BoxConstraints(
-                        maxWidth: 50,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 6.0),
-                        child: Image.asset(
-                          'assets/images/password.png',
-                          width: 24,
-                          height: 24,
-                          color: AppColors.textColor1,
-                        ),
-                      ),
+                    contentPadding: const EdgeInsets.symmetric(
+                        vertical: 12.0, horizontal: 25.0),
+                    prefixIcon: Image.asset(
+                      'assets/images/password.png',
+                      width: 24,
+                      height: 24,
+                      color: AppColors.textColor1,
                     ),
                   ),
-
                 ),
               ),
-
               Align(
                 alignment: Alignment.centerRight,
                 child: TextButton(
@@ -133,12 +116,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                   Padding(
                     padding: EdgeInsets.symmetric(horizontal: 8),
-                    child: Text('OR',style: TextStyle(
-                        fontSize: 12,
-                        fontFamily: "text",
-                        fontWeight: FontWeight.w600,
-                        color: Colors.black
-                    ),),
+                    child: Text('or'),
                   ),
                   Expanded(
                     child: Divider(
@@ -147,11 +125,10 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ],
               ),
-
               const SizedBox(height: 16),
               Container(
-                width: screenSize.width * 0.95,
-                height: screenSize.height * 0.080,
+                width: 356,
+                height: 57,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
                 ),
@@ -160,7 +137,8 @@ class LoginScreen extends StatelessWidget {
                     // Handle Google login
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -169,8 +147,8 @@ class LoginScreen extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 25.0),
                     child: Image.asset(
                       'assets/images/google.png',
-                      height: screenSize.height * 0.045,
-                      width: screenSize.height * 0.045,
+                      height: 30,
+                      width: 30,
                     ),
                   ),
                   label: const Text(
@@ -196,46 +174,39 @@ class LoginScreen extends StatelessWidget {
                         color: AppColors.textColor3),
                   ),
                   TextButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => SignUpScreen()),
-                      );
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'Create Account',
                       style: TextStyle(
-                        fontFamily: "text",
-                        fontSize: 13,
-                        fontWeight: FontWeight.w600,
-                        color: AppColors.textColor,
-                      ),
+                          fontFamily: "text",
+                          fontSize: 13,
+                          fontWeight: FontWeight.w600,
+                          color: AppColors.textColor),
                     ),
                   ),
-
                 ],
               ),
-              const SizedBox(height:140),
+              const SizedBox(height: 170),
               Container(
-                height: screenSize.height * 0.08,
+                height: 60,
                 width: double.infinity,
                 child: TextButton(
-                  onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
-                  },
-                  style: TextButton.styleFrom(
-                    backgroundColor: AppColors.textColor,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                  ),
                   child: const Text(
                     "Log in",
                     style: TextStyle(
                         fontFamily: "text",
                         fontSize: 14,
-                        color: Colors.white,
                         fontWeight: FontWeight.w600),
+                  ),
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
+                  },
+                  style: TextButton.styleFrom(
+                    backgroundColor: AppColors.textColor,
+                    primary: Colors.white,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20),
+                    ),
                   ),
                 ),
               ),

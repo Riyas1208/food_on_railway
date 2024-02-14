@@ -76,7 +76,7 @@ class ProductSingle extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(20.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -131,7 +131,7 @@ class ProductSingle extends StatelessWidget {
                       fontSize: 14
                   ),
                 ),
-                const SizedBox(height: 16.0),
+                const SizedBox(height: 10.0),
                 Container(
                   decoration: BoxDecoration(
                     color: AppColors.boxColor,

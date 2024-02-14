@@ -134,7 +134,7 @@ class OrderTracker extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
-                          children: <Widget>[
+                          children:[
                             Column(
                               children: [
                                 Row(
@@ -362,7 +362,7 @@ class OrderTracker extends StatelessWidget {
                                       fontSize: 12.0,
                                       color: Colors.black,
                                     ),
-                                    children: <TextSpan>[
+                                    children: [
                                       TextSpan(text: 'Jairam Foods',
                                           style: TextStyle(
                                               fontWeight: FontWeight.w700,

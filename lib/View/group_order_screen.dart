@@ -260,9 +260,7 @@ class _GroupOrderPageState extends State<GroupOrderPage> {
                     },
                   ),
                 ),
-
-
-                const SizedBox(height: 140),
+                const SizedBox(height: 130),
                 // Submit button
                 Container(
                   height: 60,
