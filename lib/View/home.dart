@@ -627,7 +627,7 @@ class _HomeState extends State<Home> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          // Handle onTap for COACH POSITION
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=>CheckPlatform()));
                         },
                         child: const ImageWithText(
                           imagePath: 'assets/images/CoachPosition.png',

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import 'package:food_on_railway/View/Widget/bottom_nav_widget.dart';
+import 'package:food_on_railway/View/sign_up_screen.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
@@ -69,10 +70,10 @@ class LoginScreen extends StatelessWidget {
                   maxHeight: double.infinity,
                 ),
                 child: TextFormField(
-                  textAlign: TextAlign.center,
+                  textAlign: TextAlign.left,
                   cursorColor: AppColors.textColor1,
                   decoration: InputDecoration(
-                    hintText: 'Password',
+                    hintText: '                Password',
                     hintStyle: const TextStyle(
                       fontSize: 14,
                       fontFamily: 'text',
@@ -137,8 +138,7 @@ class LoginScreen extends StatelessWidget {
                     // Handle Google login
                   },
                   style: ElevatedButton.styleFrom(
-                    primary: Colors.white,
-                    onPrimary: Colors.black,
+                    backgroundColor: Colors.white,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
@@ -174,7 +174,9 @@ class LoginScreen extends StatelessWidget {
                         color: AppColors.textColor3),
                   ),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>SignUpScreen()));
+                    },
                     child: const Text(
                       'Create Account',
                       style: TextStyle(

@@ -47,10 +47,7 @@ class _GroupOrderPageState extends State<GroupOrderPage> {
             ),
             child: GestureDetector(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()),
-                );
+                Navigator.pop(context);
               },
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
