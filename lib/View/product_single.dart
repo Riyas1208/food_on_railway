@@ -335,7 +335,7 @@ class ProductSingle extends StatelessWidget {
                           ),),
                       ],
                     ),
-                    SizedBox(height: 6,),
+                    SizedBox(height: 3,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -379,7 +379,7 @@ class ProductSingle extends StatelessWidget {
             ),
           ),
           Container(
-            height: screenSize.height * 0.07,
+            height: screenSize.height * 0.06,
             width: screenSize.width * 0.85,
             child: TextButton(
               onPressed: () {},
