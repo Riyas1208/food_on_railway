@@ -20,16 +20,18 @@ class FoodItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final Size screenSize = MediaQuery.of(context).size;
+    final bool isSmallScreen = screenSize.width < 600;
+
     return GestureDetector(
       onTap: () {
-
         Navigator.push(
           context,
           MaterialPageRoute(builder: (context) => ProductSingle()),
         );
       },
       child: Container(
-        height: 87,
+        height: isSmallScreen ? 80 : 67,
         margin: const EdgeInsets.all(8),
         decoration: BoxDecoration(
           color: Colors.white,
@@ -48,8 +50,8 @@ class FoodItem extends StatelessWidget {
               borderRadius: BorderRadius.circular(10),
               child: Image.asset(
                 image,
-                width: 70,
-                height: 64,
+                width: isSmallScreen ? 80 : 70,
+                height: isSmallScreen ? 70 : 60,
                 fit: BoxFit.cover,
               ),
             ),
@@ -69,9 +71,7 @@ class FoodItem extends StatelessWidget {
                               color: Colors.black,
                               fontFamily: "text"),
                         ),
-                        const SizedBox(
-                          width: 200,
-                        ),
+                        Spacer(),
                         const Icon(
                           Icons.favorite,
                           size: 16,

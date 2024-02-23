@@ -95,61 +95,66 @@ class FoodCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      margin: const EdgeInsets.symmetric(horizontal: 14, vertical: 8),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Align(
-            alignment: Alignment.topLeft,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Card(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Align(
+              alignment: Alignment.topLeft,
+              child: Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    const Icon(Icons.star, color: AppColors.secondaryColor, size: 18),
+                    const SizedBox(width: 4),
+                    Text(rating.toStringAsFixed(1)),
+                    Spacer(),
+                    const Icon(Icons.favorite, color: AppColors.secondaryColor, size: 16),
+                  ],
+                ),
+              ),
+            ),
+            Image.asset(
+              imageUrl,
+              height: 100,
+              width: double.infinity,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+              child: Text(price,
+                style: const TextStyle(
+                    fontSize: 16,
+                    color: Colors.red
+                ),),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(4.0),
+
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Icon(Icons.star, color: Colors.amber, size: 18),
-                  const SizedBox(width: 4),
-                  Text(rating.toStringAsFixed(1)),
+                  Text(
+                    name,
+                    style: const TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold),
+                  ),
                 ],
               ),
             ),
-          ),
-          Image.asset(
-            imageUrl,
-            height: 100,
-            width: double.infinity,
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  name,
-                  style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-              ],
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8.0),
+              child: Text(
+                ingredients,
+                style: const TextStyle(fontSize: 14, color: Colors.grey),
+              ),
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              ingredients,
-              style: const TextStyle(fontSize: 14, color: Colors.grey),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
 
-            },
-            child: Text(price,
-            style: TextStyle(
-              fontSize: 16,
-              color: Colors.red
-            ),),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

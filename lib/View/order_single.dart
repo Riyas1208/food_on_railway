@@ -5,6 +5,8 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 class OrderTracker extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final isSmallScreen = MediaQuery.of(context).size.width < 600;
+
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -24,11 +26,11 @@ class OrderTracker extends StatelessWidget {
                 Text(
                   'Order #150897',
                   style: TextStyle(
-                    fontSize: 16,
-                    fontFamily: "text3",
-                    fontWeight: FontWeight.w400,
-                    color: Colors.black,
-                    height: 1
+                      fontSize: 16,
+                      fontFamily: "text3",
+                      fontWeight: FontWeight.w400,
+                      color: Colors.black,
+                      height: 1
                   ),
                 ),
                 Text(
@@ -49,9 +51,9 @@ class OrderTracker extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children:[
-            const SizedBox(
-              height: 312,
-              child: GoogleMap(
+            SizedBox(
+              height: isSmallScreen ? 200 : 312,
+              child: const GoogleMap(
                 initialCameraPosition: CameraPosition(
                   target: LatLng(10.8011366, 76.1796676),
                   zoom: 12,
@@ -124,155 +126,202 @@ class OrderTracker extends StatelessWidget {
                   const SizedBox(height: 12,),
                   Container(
                     height: 200,
+                    width: 350,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: AppColors.boxColor5
+                      color: AppColors.boxColor5,
                     ),
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: Column(
-                        children:[
+                        children: [
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Row(
                                 children: [
                                   Container(
                                     decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(8)
+                                      borderRadius: BorderRadius.circular(8),
                                     ),
-                                    child: Image.asset('assets/images/meat&fish.png',
-                                    height: 56,
-                                    width: 62,),
+                                    child: Image.asset(
+                                      'assets/images/meat&fish.png',
+                                      height: 56,
+                                      width: 62,
+                                    ),
                                   ),
-                                  const SizedBox(width: 10,),
-                                  const Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      Text('Meat and fish',
-                                      style: TextStyle(
-                                        fontFamily: "text5",
-                                        fontSize: 13,
-                                        fontWeight: FontWeight.w400
-                                      ),),
-                                      Row(
-                                        children: [
-                                          Text('ponnani,Malappuram',
+                                  const SizedBox(width: 10),
+                                  const Padding(
+                                    padding: EdgeInsets.all(4.0),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Meat and fish',
                                           style: TextStyle(
-                                            color: AppColors.textColor4,
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 10,
-                                            fontFamily: "text5"
-                                          ),),
-                                          SizedBox(width: 130,),
-                                          Text('CoD',
-                                          style: TextStyle(
-                                            color: AppColors.textColor10,
                                             fontFamily: "text5",
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.w400
-                                          ),),
-                                        ],
-                                      ),
-                                      Row(
-                                        children: [
-                                          Text('45 Minutes',
+                                            fontSize: 13,
+                                            fontWeight: FontWeight.w400,
+                                          ),
+                                        ),
+                                        Column(
+                                          children: [
+                                            Row(
+                                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                              children: [
+                                                Text(
+                                                  'ponnani,Malappuram',
+                                                  style: TextStyle(
+                                                    color: AppColors.textColor4,
+                                                    fontWeight: FontWeight.w400,
+                                                    fontSize: 10,
+                                                    fontFamily: "text5",
+                                                  ),
+                                                ),
+                                                SizedBox(width: 90,),
+                                                Text(
+                                                  'CoD',
+                                                  style: TextStyle(
+                                                    color: AppColors.textColor10,
+                                                    fontFamily: "text5",
+                                                    fontSize: 10,
+                                                    fontWeight: FontWeight.w400,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                        Row(
+                                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Text(
+                                              '45 Minutes',
                                               style: TextStyle(
-                                                  color: AppColors.textColor4,
-                                                  fontWeight: FontWeight.w400,
-                                                  fontSize: 10,
-                                                  fontFamily: "text5"
-                                              )),
-                                          SizedBox(width: 142,),
-                                          Text('2022-03-04',
-                                          style: TextStyle(
-                                            fontWeight: FontWeight.w400,
-                                            fontSize: 10,
-                                            fontFamily: "text5",
-                                            color: AppColors.textColor4
-                                          ),),
-                                        ],
-                                      )
-                                    ],
+                                                color: AppColors.textColor4,
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                fontFamily: "text5",
+                                              ),
+                                            ),
+                                            SizedBox(width: 103,),
+                                            Text(
+                                              '2022-03-04',
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.w400,
+                                                fontSize: 10,
+                                                fontFamily: "text5",
+                                                color: AppColors.textColor4,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ],
+                                    ),
                                   ),
                                 ],
                               ),
                             ],
                           ),
-                          const SizedBox(height: 8,),
+                          const SizedBox(height: 8),
                           const Divider(
                             height: 1,
                             thickness: 2,
                           ),
                           const ListTile(
-                            title: Text('1 x Fresh chicken (1 kg)',
-                            style: TextStyle(
-                              fontFamily: "text5",
-                              fontSize: 13,
-                              fontWeight: FontWeight.w600
-                            ),),
+                            title: Text(
+                              '1 x Fresh chicken (1 kg)',
+                              style: TextStyle(
+                                fontFamily: "text5",
+                                fontSize: 13,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
                           ),
-                          const SizedBox(height: 2,),
+                          const SizedBox(height: 2),
                           const Divider(
                             height: 1,
                             thickness: 2,
                           ),
-                          const SizedBox(height: 8,),
-                          const Row(
-                            children: [
-                              Text('Delivery Charge',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w400,
-                                fontSize: 10,
-                                fontFamily: "text5",
-                                color: AppColors.textColor4
-                              ),),
-                              SizedBox(width: 220,),
-                              Text('₹0.00',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    fontFamily: "text5",
-                                    color: Colors.black
-                                ),),
-                            ],
-                          ),
-                          const Row(
-                            children: [
-                              Text('Taxes and Charges',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    fontFamily: "text5",
-                                    color: AppColors.textColor4
-                                ),),
-                              SizedBox(width: 204,),
-                              Text('₹0.00',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 10,
-                                    fontFamily: "text5",
-                                    color: Colors.black
-                                ),),
-                            ],
-                          ),
-                          const Row(
-                            children: [
-                              Text('Grand total',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w400,
-                                    fontSize: 11,
-                                    fontFamily: "text5",
-                                    color: AppColors.textColor4
-                                ),),
-                              SizedBox(width: 237,),
-                              Text('₹170',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w600,
-                                    fontSize: 11,
-                                    fontFamily: "text5",
-                                    color: Colors.black
-                                ),),
-                            ],
+                          const SizedBox(height: 8),
+                          const Padding(
+                            padding: EdgeInsets.all(4.0),
+                            child: Column(
+                              children: [
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Delivery Charge',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        fontFamily: "text5",
+                                        color: AppColors.textColor4,
+                                      ),
+                                    ),
+                                    SizedBox(width: 180),
+                                    Text(
+                                      '₹0.00',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        fontFamily: "text5",
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Taxes and Charges',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        fontFamily: "text5",
+                                        color: AppColors.textColor4,
+                                      ),
+                                    ),
+                                    SizedBox(width: 165),
+                                    Text(
+                                      '₹0.00',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 10,
+                                        fontFamily: "text5",
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Grand total',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w400,
+                                        fontSize: 11,
+                                        fontFamily: "text5",
+                                        color: AppColors.textColor4,
+                                      ),
+                                    ),
+                                    SizedBox(width: 196),
+                                    Text(
+                                      '₹170',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w600,
+                                        fontSize: 11,
+                                        fontFamily: "text5",
+                                        color: Colors.black,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
@@ -292,16 +341,16 @@ class OrderTracker extends StatelessWidget {
                       padding: const EdgeInsets.all(20.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
+                        children:[
                           Row(
                             children: [
                               const Text('Avoid the hassle of cash\nand change',
-                              style: TextStyle(
-                                fontFamily: "text3",
-                                fontWeight: FontWeight.w500,
-                                fontSize: 16,
-                                color: Colors.black
-                              ),),
+                                style: TextStyle(
+                                    fontFamily: "text3",
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 16,
+                                    color: Colors.black
+                                ),),
                               const Spacer(),
                               Container(
                                 height: 30,
@@ -324,13 +373,13 @@ class OrderTracker extends StatelessWidget {
                             ],
                           ),
                           const Text('Rs 329 | 1 item',
-                          style: TextStyle(
-                            color: AppColors.textColor4,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w300,
-                            fontFamily: "text3",
-                            height: 1
-                          ),),
+                            style: TextStyle(
+                                color: AppColors.textColor4,
+                                fontSize: 12,
+                                fontWeight: FontWeight.w300,
+                                fontFamily: "text3",
+                                height: 1
+                            ),),
                         ],
                       ),
                     ),
@@ -364,7 +413,7 @@ class OrderTracker extends StatelessWidget {
                                         style: TextStyle(
                                             fontWeight: FontWeight.w700,
                                             fontFamily: "text3",
-                                          height: 1.5
+                                            height: 1.5
                                         )),
                                     TextSpan(text: ' is preparing your\norder',
                                         style: TextStyle(
@@ -396,16 +445,16 @@ class OrderTracker extends StatelessWidget {
                                   children: <TextSpan>[
                                     TextSpan(text: 'Raghav Singh',
                                         style: TextStyle(
-                                          fontWeight: FontWeight.w700,
-                                          fontFamily: "text3",
-                                          height: 1.5
+                                            fontWeight: FontWeight.w700,
+                                            fontFamily: "text3",
+                                            height: 1.5
                                         )),
                                     TextSpan(text: ' is your delivery\npartner',
-                                    style: TextStyle(
-                                      fontFamily: "text3",
-                                      fontWeight: FontWeight.w300,
-                                      height: 1.5
-                                    )),
+                                        style: TextStyle(
+                                            fontFamily: "text3",
+                                            fontWeight: FontWeight.w300,
+                                            height: 1.5
+                                        )),
                                   ],
                                 ),
                               ),
@@ -419,11 +468,11 @@ class OrderTracker extends StatelessWidget {
                           Row(
                             children: [
                               const Text('Add delivery instructions',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w300,
-                                fontSize: 14,
-                                fontFamily: "text3"
-                              ),),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.w300,
+                                    fontSize: 14,
+                                    fontFamily: "text3"
+                                ),),
                               const Spacer(),
                               Image.asset("assets/images/Add.png"),
                             ],

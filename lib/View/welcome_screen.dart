@@ -3,9 +3,8 @@ import 'package:food_on_railway/Model/Utils/app_colors.dart';
 import 'package:food_on_railway/Model/onboarding_model.dart';
 import 'package:food_on_railway/View/login_screen.dart';
 
-
 class Onbording extends StatefulWidget {
-  const Onbording({super.key});
+  const Onbording({Key? key}) : super(key: key);
 
   @override
   _OnbordingState createState() => _OnbordingState();
@@ -29,12 +28,15 @@ class _OnbordingState extends State<Onbording> {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       body: Stack(
         children: [
           Column(
             children: [
-              Expanded(
+              Flexible(
                 child: PageView.builder(
                   controller: _controller,
                   itemCount: contents.length,
@@ -45,35 +47,38 @@ class _OnbordingState extends State<Onbording> {
                   },
                   itemBuilder: (_, i) {
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 50),
+                      padding: EdgeInsets.symmetric(vertical: screenHeight * 0.09),
                       child: Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 60.0),
+                        padding: const EdgeInsets.all(36.0),
                         child: Column(
                           children: [
                             Image.asset(
                               contents[i].image,
-                              height: 256,
-                              width: 256,
+                              height: screenHeight * 0.3,
+                              width: screenHeight * 0.3,
                             ),
-                            const SizedBox(height: 8,),
+                            SizedBox(height: screenHeight * 0.02),
                             Text(
                               contents[i].title,
-                              style: const TextStyle(
+                              style: TextStyle(
                                 fontFamily: 'text',
-                                fontSize: 25,
+                                fontSize: screenWidth * 0.05,
                                 color: AppColors.textColor,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            const SizedBox(height: 10),
-                            Text(
-                              contents[i].discription,
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontFamily: "text",
-                                fontWeight: FontWeight.w400,
-                                fontSize: 16,
-                                color: AppColors.textColor1,
+                            SizedBox(height: screenHeight * 0.01),
+                            Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text(
+                                contents[i].discription,
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontFamily: "text",
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: screenWidth * 0.03,
+                                  color: AppColors.textColor1,
+                                ),
                               ),
                             )
                           ],
@@ -83,27 +88,30 @@ class _OnbordingState extends State<Onbording> {
                   },
                 ),
               ),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: List.generate(
-                  contents.length,
-                      (index) => buildDot(index, context),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                    contents.length,
+                        (index) => buildDot(index, context),
+                  ),
                 ),
               ),
-              const SizedBox(height: 160,),
+              SizedBox(height: screenHeight * 0.1),
               Container(
-                height: 60,
-                margin: const EdgeInsets.all(40),
+                height: screenHeight * 0.08,
+                margin: EdgeInsets.all(screenWidth * 0.08),
                 width: double.infinity,
                 child: TextButton(
-                  child: const Text(
-                     "Next",style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontFamily: "text",
-                    color: Colors.white,
-                    fontSize: 14
-                  ),
+                  child: Text(
+                    "Next",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      fontFamily: "text",
+                      color: Colors.white,
+                      fontSize: screenWidth * 0.025,
+                    ),
                   ),
                   onPressed: () {
                     if (currentIndex == contents.length - 1) {
@@ -130,8 +138,8 @@ class _OnbordingState extends State<Onbording> {
             ],
           ),
           Positioned(
-            top: 30,
-            right: 20,
+            top: screenHeight * 0.03,
+            right: screenWidth * 0.04,
             child: TextButton(
               onPressed: () {
                 Navigator.pushReplacement(
@@ -141,13 +149,13 @@ class _OnbordingState extends State<Onbording> {
                   ),
                 );
               },
-              child: const Text(
+              child: Text(
                 'Skip',
                 style: TextStyle(
                   fontFamily: "text",
                   color: Colors.black,
                   fontWeight: FontWeight.w400,
-                  fontSize: 15,
+                  fontSize: screenWidth * 0.03,
                   decoration: TextDecoration.underline,
                 ),
               ),
@@ -158,13 +166,11 @@ class _OnbordingState extends State<Onbording> {
     );
   }
 
-
   Container buildDot(int index, BuildContext context) {
     return Container(
-
       height: 10,
       width: currentIndex == index ? 10 : 10,
-      margin: const EdgeInsets.only(right: 5),
+      margin: EdgeInsets.only(right: 5),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(100),
         color: currentIndex == index ? AppColors.textColor : AppColors.unselctedColor,
@@ -172,4 +178,3 @@ class _OnbordingState extends State<Onbording> {
     );
   }
 }
-

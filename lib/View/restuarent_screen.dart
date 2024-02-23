@@ -149,7 +149,7 @@ class _RestaurantState extends State<Restaurant> {
                   child: Row(
                     children: [
                       Image.asset(_imageAsset),
-                      SizedBox(width: screenSize.width * 0.01),
+                      SizedBox(width: screenSize.width * 0.02),
                       Expanded(
                         child: DropdownButton<String>(
                           value: _selectedOption,

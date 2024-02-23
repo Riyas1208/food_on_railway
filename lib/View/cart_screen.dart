@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_on_railway/View/order_placed.dart';
+import 'package:food_on_railway/View/empty_cart.dart';
 import '../Model/Utils/app_colors.dart';
 
 class CartScreen extends StatefulWidget {
@@ -11,11 +12,12 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
   String? paymentMethod;
+  bool isCartEmpty = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
+      body: isCartEmpty ? const EmptyCart() : SingleChildScrollView(
         child: Column(
           children: [
             const Padding(
@@ -53,44 +55,41 @@ class _CartScreenState extends State<CartScreen> {
                             ),
                           ),
                           const SizedBox(width: 10),
-                          const Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Chicken Burger',
-                                  style: TextStyle(
-                                    fontFamily: "text",
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 14,
-                                  ),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Chicken Burger',
+                                style: TextStyle(
+                                  fontFamily: "text",
+                                  fontWeight: FontWeight.w500,
+                                  fontSize: 14,
                                 ),
-                                Text(
-                                  'Burger Factory LTD',
-                                  style: TextStyle(
-                                    fontFamily: "text",
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.textColor4,
-                                    fontSize: 13,
-                                  ),
+                              ),
+                              Text(
+                                'Burger Factory LTD',
+                                style: TextStyle(
+                                  fontFamily: "text",
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.textColor4,
+                                  fontSize: 11,
                                 ),
-                                Text(
-                                  '₹20',
-                                  style: TextStyle(
-                                    fontFamily: "text",
-                                    fontWeight: FontWeight.w500,
-                                    color: AppColors.textColor,
-                                    fontSize: 16,
-                                  ),
+                              ),
+                              Text(
+                                '₹20',
+                                style: TextStyle(
+                                  fontFamily: "text",
+                                  fontWeight: FontWeight.w700,
+                                  color: AppColors.textColor,
+                                  fontSize: 16,
                                 ),
-                              ],
-                            ),
+                              ),
+                            ],
                           ),
                           const Spacer(),
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              const SizedBox(height: 8),
                               InkWell(
                                 onTap: () {},
                                 child: const Text(
@@ -193,7 +192,7 @@ class _CartScreenState extends State<CartScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             'Sub-Total',
@@ -203,27 +202,27 @@ class _CartScreenState extends State<CartScreen> {
                           Text('₹100'),
                         ],
                       ),
-                      SizedBox(height: 4,),
-                      Row(
+                      const SizedBox(height: 4,),
+                      const Row(
                         children: [
                           Text('Delivery Charge '),
                           Spacer(),
                           Text('₹10'),
                         ],
                       ),
-                      SizedBox(height: 4,),
-                      Row(
+                      const SizedBox(height: 4,),
+                      const Row(
                         children: [
                           Text('Discount'),
                           Spacer(),
                           Text('₹10'),
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         color: Colors.grey,
                         thickness: 0.8,
                       ),
-                      Row(
+                      const Row(
                         children: [
                           Text(
                             'Total',
@@ -233,7 +232,7 @@ class _CartScreenState extends State<CartScreen> {
                           Text('₹110'),
                         ],
                       ),
-                      Divider(
+                      const Divider(
                         color: Colors.grey,
                         thickness: 0.8,
                       ),
@@ -252,7 +251,7 @@ class _CartScreenState extends State<CartScreen> {
                                 groupValue: paymentMethod,
                                 activeColor: Colors.red,
                               ),
-                              Text('Cash on Delivery'),
+                              const Text('Cash on Delivery'),
                             ],
                           ),
                           Row(
@@ -267,18 +266,29 @@ class _CartScreenState extends State<CartScreen> {
                                 groupValue: paymentMethod,
                                 activeColor: Colors.red,
                               ),
-                              Text('Pay on Delivery'),
+                              const Text('Pay on Delivery'),
                             ],
                           ),
                         ],
                       ),
-                      SizedBox(height: 25,),
+                      const SizedBox(height: 25,),
                       Container(
                         height: 60,
                         width: double.infinity,
                         child: TextButton(
                           onPressed: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context) => OrderPlaced()));
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => OrderPlaced(
+                                  onContinue: () {
+                                    setState(() {
+                                      isCartEmpty = true;
+                                    });
+                                  },
+                                ),
+                              ),
+                            );
                           },
                           style: TextButton.styleFrom(
                             backgroundColor: AppColors.textColor,

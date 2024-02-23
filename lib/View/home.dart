@@ -20,6 +20,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String selectedCategory = 'Burger';
+  bool _isSelected = false;
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +67,7 @@ class _HomeState extends State<Home> {
                       ],
                     ),
                   ),
-                  const SizedBox(width: 110,),
+                  Spacer(),
                   Row(
                     children: [
                       GestureDetector(
@@ -98,7 +99,7 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                       ),
-                      SizedBox(width: 8),
+                      SizedBox(width: 8,),
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -476,14 +477,14 @@ class _HomeState extends State<Home> {
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      side: const BorderSide(color: AppColors.textColor),
+                                      side: BorderSide(color: _isSelected ? AppColors.textColor : AppColors.textColor4), // Border color change
                                     ),
                                     backgroundColor: AppColors.boxColor1,
                                   ),
-                                  child: const Text(
+                                  child: Text(
                                     'Search by PNR',
                                     style: TextStyle(
-                                      color: AppColors.textColor,
+                                      color: _isSelected ? AppColors.textColor : Colors.black // Text color change
                                     ),
                                   ),
                                 ),
@@ -504,20 +505,21 @@ class _HomeState extends State<Home> {
                                   style: ElevatedButton.styleFrom(
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8.0),
-                                      side: const BorderSide(color: AppColors.textColor),
+                                      side: BorderSide(color: _isSelected ? AppColors.textColor : AppColors.textColor4), // Border color change
                                     ),
                                     backgroundColor: AppColors.boxColor1,
                                   ),
-                                  child: const Text(
+                                  child: Text(
                                     'Search by Train',
                                     style: TextStyle(
-                                      color: AppColors.textColor,
+                                      color:_isSelected ? AppColors.textColor : Colors.black, // Text color change
                                     ),
                                   ),
                                 ),
                               ),
                             ),
                           ),
+
                         ],
                       ),
 
@@ -641,12 +643,15 @@ class _HomeState extends State<Home> {
             ),
             const Padding(
               padding: EdgeInsets.all(16.0),
-              child: Text(
-                'Order You want',
-                style: TextStyle(
-                  fontSize: 16.0,
-                  fontFamily: "text",
-                  fontWeight: FontWeight.w500,
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  'Order You want',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontFamily: "text",
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
             ),

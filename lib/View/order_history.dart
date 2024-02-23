@@ -54,16 +54,16 @@ class OrderHistoryScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => OrderTracker()),
               );
             },
-            child: Card(
-              margin: const EdgeInsets.all(8),
+            child: const Card(
+              margin: EdgeInsets.all(8),
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Order #150897',
                           style: TextStyle(
@@ -77,7 +77,7 @@ class OrderHistoryScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Text(
+                    Text(
                       'Processing',
                       style: TextStyle(color: Colors.orange),
                     ),
@@ -93,16 +93,16 @@ class OrderHistoryScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => OrderTracker()),
               );
             },
-            child: Card(
-              margin: const EdgeInsets.all(8),
+            child: const Card(
+              margin: EdgeInsets.all(8),
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Order #150896',
                           style: TextStyle(
@@ -116,7 +116,7 @@ class OrderHistoryScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Text(
+                    Text(
                       'Completed',
                       style: TextStyle(color: Colors.green),
                     ),
@@ -132,16 +132,16 @@ class OrderHistoryScreen extends StatelessWidget {
                 MaterialPageRoute(builder: (context) => OrderTracker()),
               );
             },
-            child: Card(
-              margin: const EdgeInsets.all(8),
+            child: const Card(
+              margin: EdgeInsets.all(8),
               child: Padding(
-                padding: const EdgeInsets.all(16),
+                padding: EdgeInsets.all(16),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
+                      children: [
                         Text(
                           'Order #150895',
                           style: TextStyle(
@@ -155,7 +155,7 @@ class OrderHistoryScreen extends StatelessWidget {
                         ),
                       ],
                     ),
-                    const Text(
+                    Text(
                       'Completed',
                       style: TextStyle(color: Colors.green),
                     ),

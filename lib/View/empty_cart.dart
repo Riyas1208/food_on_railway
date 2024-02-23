@@ -17,8 +17,8 @@ class EmptyCart extends StatelessWidget {
               width: 250,
               height: 250,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Your cart is empty',
               style: TextStyle(
                   fontSize: 18,
@@ -27,8 +27,8 @@ class EmptyCart extends StatelessWidget {
                   color: AppColors.textColor
               ),
             ),
-            SizedBox(height: 10),
-            Text(
+            const SizedBox(height: 10),
+            const Text(
               'Look like you haven’t made\n         your choice yet',
               style: TextStyle(
                 fontSize: 14,
@@ -36,7 +36,6 @@ class EmptyCart extends StatelessWidget {
                 color: Colors.black,
               ),
             ),
-
           ],
         ),
       ),

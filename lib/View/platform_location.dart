@@ -8,18 +8,19 @@ import 'Widget/platform_location_widget.dart';
 import 'Widget/time_table_widget.dart';
 
 class PlatformLocation extends StatefulWidget {
-  const PlatformLocation({super.key});
+  const PlatformLocation({Key? key}) : super(key: key);
 
   @override
   _PlatformLocationState createState() => _PlatformLocationState();
 }
+
 class _PlatformLocationState extends State<PlatformLocation> {
-  String selectedCategory = 'Time Table';
+  String selectedCategory = 'TIME TABLE';
 
   @override
   void initState() {
     super.initState();
-    selectedCategory = 'Time Table';
+    selectedCategory = 'TIME TABLE';
   }
 
   @override
@@ -64,35 +65,35 @@ class _PlatformLocationState extends State<PlatformLocation> {
       ),
       body: Column(
         children: [
-          Container(
+          SizedBox(
             height: 70.0,
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
                 TabItem(
-                  title: 'Time Table',
-                  isSelected: selectedCategory == 'Time Table',
+                  title: 'TIME TABLE',
+                  isSelected: selectedCategory == 'TIME TABLE',
                   onTap: () {
                     setState(() {
-                      selectedCategory = 'Time Table';
+                      selectedCategory = 'TIME TABLE';
                     });
                   },
                 ),
                 TabItem(
-                  title: ' Coach\nPosition',
-                  isSelected: selectedCategory == 'Coach\nPosition',
+                  title: ' COACH\nPOSITION',
+                  isSelected: selectedCategory == 'COACH\nPOSITION',
                   onTap: () {
                     setState(() {
-                      selectedCategory = 'Coach\nPosition';
+                      selectedCategory = 'COACH\nPOSITION';
                     });
                   },
                 ),
                 TabItem(
-                  title: 'Platform\nLocation',
-                  isSelected: selectedCategory == 'Platform\nLocation',
+                  title: 'PLATFORM\nLOCATION',
+                  isSelected: selectedCategory == 'PLATFORM\nLOCATION',
                   onTap: () {
                     setState(() {
-                      selectedCategory = 'Platform\nLocation';
+                      selectedCategory = 'PLATFORM\nLOCATION';
                     });
                   },
                 ),
@@ -102,11 +103,11 @@ class _PlatformLocationState extends State<PlatformLocation> {
           Expanded(
             child: Padding(
               padding: EdgeInsets.all(20.0),
-              child: selectedCategory == 'Time Table'
+              child: selectedCategory == 'TIME TABLE'
                   ? TimeTableWidget()
-                  : selectedCategory == 'Coach\nPosition'
+                  : selectedCategory == 'COACH\nPOSITION'
                   ? CoachPositionWidget()
-                  : selectedCategory == 'Platform\nLocation'
+                  : selectedCategory == 'PLATFORM\nLOCATION'
                   ? PlatformLocationWidget()
                   : Container(),
             ),

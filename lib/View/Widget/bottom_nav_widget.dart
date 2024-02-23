@@ -16,8 +16,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = [
     const Home(key: PageStorageKey('HomeScreen')),
-    const CartScreen(key: PageStorageKey('FavouritePage')),
-    const Profile(key: PageStorageKey('CartScreen')),
+    const CartScreen(key: PageStorageKey('CartScreen')),
+    const Profile(key: PageStorageKey('ProfileScreen')),
   ];
 
   @override

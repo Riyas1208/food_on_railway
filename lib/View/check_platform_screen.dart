@@ -4,9 +4,7 @@ import 'package:food_on_railway/View/Widget/bottom_nav_widget.dart';
 import 'package:food_on_railway/View/platform_location.dart';
 
 class CheckPlatform extends StatelessWidget {
-  final TextEditingController _controller = TextEditingController();
-
-  CheckPlatform({super.key});
+  const CheckPlatform({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +23,7 @@ class CheckPlatform extends StatelessWidget {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => MyHomePage()),
+                  MaterialPageRoute(builder: (context) => const MyHomePage()),
                 );
               },
               child: Padding(
@@ -39,7 +37,7 @@ class CheckPlatform extends StatelessWidget {
           ),
         ),
         title: const Padding(
-          padding: EdgeInsets.symmetric(horizontal: 45.0),
+          padding: EdgeInsets.symmetric(horizontal: 20.0),
           child: Text(
             'Check Platform location',
             style: TextStyle(

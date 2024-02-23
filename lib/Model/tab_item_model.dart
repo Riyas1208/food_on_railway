@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-
 import 'Utils/app_colors.dart';
 
 class TabItem extends StatelessWidget {
   final String title;
   final bool isSelected;
   final VoidCallback? onTap;
+
 
   const TabItem({
     required this.title,
@@ -28,7 +28,6 @@ class TabItem extends StatelessWidget {
           color: boxColor,
           borderRadius: BorderRadius.circular(10),
           border: Border.all(
-            // Add border
             color: borderColor,
             width: 2,
           ),
@@ -49,7 +48,7 @@ class TabItem extends StatelessWidget {
                 fontSize: 11,
                 fontWeight: FontWeight.w500,
                 fontFamily: "text1",
-                color: isSelected ? Colors.white : Colors.black,
+                color: isSelected ? Colors.white : AppColors.textColor,
               ),
             ),
           ],
