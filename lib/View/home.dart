@@ -650,7 +650,7 @@ class _HomeState extends State<Home> {
                   style: TextStyle(
                     fontSize: 16.0,
                     fontFamily: "text",
-                    fontWeight: FontWeight.w500,
+                    fontWeight: FontWeight.w700,
                   ),
                 ),
               ),
@@ -722,7 +722,7 @@ class _HomeState extends State<Home> {
                     style: TextStyle(
                         fontSize: 16.0,
                         fontFamily: "text",
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w700,
                         color: Colors.black
                     ),
                   ),
