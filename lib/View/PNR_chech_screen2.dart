@@ -208,7 +208,7 @@ class PNRStatusPage extends StatelessWidget {
                             shrinkWrap: true,
                             itemCount: 3,
                             itemBuilder: (context, index) {
-                              return Container(
+                              return SizedBox(
                                 child: ListTile(
                                   title: Column(
                                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -247,9 +247,7 @@ class PNRStatusPage extends StatelessWidget {
                                                 fontSize: 11,
                                                 color: AppColors.textColor6),
                                           ),
-                                          SizedBox(
-                                            width: 40,
-                                          ),
+                                          Spacer(),
                                           Text(
                                             'Current Status',
                                             style: TextStyle(
@@ -258,9 +256,7 @@ class PNRStatusPage extends StatelessWidget {
                                                 fontSize: 11,
                                                 color: AppColors.textColor6),
                                           ),
-                                          SizedBox(
-                                            width: 40,
-                                          ),
+                                         Spacer(),
                                           Text(
                                             'Cnf Probability',
                                             style: TextStyle(
@@ -283,9 +279,7 @@ class PNRStatusPage extends StatelessWidget {
                                             fontSize: 13,
                                             color: AppColors.textColor7),
                                       ),
-                                      SizedBox(
-                                        width: 68,
-                                      ),
+                                      Spacer(),
                                       Text(
                                         '  WL/126',
                                         style: TextStyle(
@@ -294,9 +288,7 @@ class PNRStatusPage extends StatelessWidget {
                                             fontSize: 13,
                                             color: AppColors.textColor7),
                                       ),
-                                      SizedBox(
-                                        width: 68,
-                                      ),
+                                      Spacer(),
                                       Text(
                                         'High 83%',
                                         style: TextStyle(

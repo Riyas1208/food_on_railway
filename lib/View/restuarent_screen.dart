@@ -25,7 +25,7 @@ class _RestaurantState extends State<Restaurant> {
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               shape: BoxShape.circle,
               color: AppColors.boxColor,
             ),
@@ -33,7 +33,7 @@ class _RestaurantState extends State<Restaurant> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => RestuarentSearch()),
+                  MaterialPageRoute(builder: (context) => const RestuarentSearch()),
                 );
               },
               child: Padding(
@@ -79,7 +79,7 @@ class _RestaurantState extends State<Restaurant> {
                                       color: Colors.black,
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   Image.asset("assets/images/share.png"),
                                 ],
                               ),
@@ -125,7 +125,7 @@ class _RestaurantState extends State<Restaurant> {
                     color: AppColors.boxColor,
                     borderRadius: BorderRadius.circular(8)
                 ),
-                child: TextField(
+                child: const TextField(
                   decoration: InputDecoration(
                     hintText: 'Search For dishes',
                     border: InputBorder.none,
@@ -136,21 +136,29 @@ class _RestaurantState extends State<Restaurant> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(right: screenSize.width * 0.62),
-              child: Card(
-                elevation: 1,
-                child: Container(
-                  width: screenSize.width * 0.29,
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(4),
+              padding: EdgeInsets.only(right: screenSize.width * 0.68),
+              child: Container(
+                width: screenSize.width * 0.39,
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.2),
+                      spreadRadius: 0,
+                      blurRadius: 1,
+                      offset: const Offset(0, 4),
+                    ),
+                  ],
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(15),
 
-                  ),
-                  child: Row(
-                    children: [
-                      Image.asset(_imageAsset),
-                      SizedBox(width: screenSize.width * 0.02),
-                      Expanded(
+                ),
+                child: Row(
+                  children: [
+                    const SizedBox(width: 10,),
+                    Image.asset(_imageAsset),
+                    SizedBox(width: screenSize.width * 0.01),
+                    Expanded(
+                      child: DropdownButtonHideUnderline(
                         child: DropdownButton<String>(
                           value: _selectedOption,
                           onChanged: (String? newValue) {
@@ -170,8 +178,8 @@ class _RestaurantState extends State<Restaurant> {
                           }).toList(),
                         ),
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               ),
             ),
