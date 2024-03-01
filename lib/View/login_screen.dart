@@ -200,7 +200,6 @@ class LoginScreen extends StatelessWidget {
                 },
                 style: TextButton.styleFrom(
                   backgroundColor: AppColors.textColor,
-                  primary: Colors.white,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(20),
                   ),
